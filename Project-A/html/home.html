@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Name Novel</title>
+    <style>
+        
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+}
+
+header .logo,
+header .right-logo {
+    width: 50px;
+    height: 50px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+    flex-grow: 1;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+
+.left-column,
+.center-column,
+.right-column {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.left-column .sub-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-top: 1px solid #ddd;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Logo</div>
+        <h1>NO NAME NOVEL</h1>
+        <div class="right-logo">Logo</div>
+    </header>
+    <nav>
+        <ul>
+            <li>Trang Chủ</li>
+            <li>Thể Loại</li>
+            <li>Truyện Mới</li>
+            <li>Liên Hệ</li>
+        </ul>
+    </nav>
+    <main>
+        <section class="left-column">
+            <h2>Truyện Đề Cử</h2>
+            <div class="sub-section">
+                <div>Truyện Tranh</div>
+                <div>Truyện Chữ</div>
+            </div>
+        </section>
+        <section class="center-column">
+            <h2>Truyện Hot</h2>
+        </section>
+        <section class="right-column">
+            <h2>Lịch Sử Đọc Truyện</h2>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Truyện Tranh Online. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
