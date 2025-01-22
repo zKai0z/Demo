@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Name Novel</title>
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+
+        header .logo,
+        header .right-logo {
+            width: 50px;
+            height: 50px;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        header h1 {
+            text-align: center;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+            justify-content: center;
+        }
+
+        nav ul li a{
+            text-decoration: none;
+            color: #ddd;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            cursor: pointer;
+        }
+
+        .dropbtn {
+            padding: 0px;
+            font-size: 16px;
+            border: none;
+            background-color: #333;
+            color:#ddd;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropcontent {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 4;
+        }
+
+        .dropcontent a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:focus .dropcontent a:focus {display: block;}
+        .dropcontent a:hover{background-color: gray;color: #ddd;}
+        .show {display:block;}
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .left-column,
+        .center-column,
+        .right-column {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .left-column .sub-section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left-column .sub-section button {
+            border: outset #333;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .center-column table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .center-column table th, .center-column table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .center-column table th {
+            background-color: #f4f4f4;
+        }
+
+        .center-column img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-top: 1px solid #ddd;
+        }
+        .center-column a{
+            color: #333;
+            text-decoration: none;
+        }
+        .center-column a:hover{
+            color: blue;
+            cursor: pointer;
+        }
+        .center-column .hotlist{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start; 
+            gap: 16px; 
+        }
+
+        .story-card {
+            flex: 1 1 calc(33.333% - 16px); 
+            box-sizing: border-box; 
+            max-width: calc(33.333% - 16px); 
+        }
+
+        .story-card img {
+            width: 100%; 
+            height: auto; 
+        }
+
+        .story-card a {
+            display: block;
+            margin-top: 8px; 
+            text-align: center;
+        }
+        .center-column .hotlist{text-align: center;}
+        .right-column .historyL {
+            display: flex;
+            justify-content: center;
+            left: 33.3%;    
+            height: 100%;        
+            position: relative;
+        }
+
+        .history-list {
+            width: 100%;
+            text-align: center;     
+        }
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="/Project-A/Images/LogoText.png" alt=""></div>
+        <h1>NO NAME NOVEL</h1>
+        <div class="right-logo"></div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="home.html">Trang Chủ</a></li>
+            <li class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Thể Loại</button>
+                <div id="myDropdown" class="dropcontent">
+                    <a href="action.html">Hành Động</a>
+                    <a href="romance.html">Lãng Mạn</a>
+                    <a href="comedy.html">Hài Hước</a>
+                    <a href="fantasy.html">Giả Tưởng</a>
+                </div>
+            </li>
+            <li><a href="">Truyện Mới</a></li>
+            <li><a href="">Liên Hệ</a></li>
+        </ul>
+    </nav>
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                const dropdowns = document.getElementsByClassName("dropcontent");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        };
+
+        function showContent(type) {
+            const leftColumn = document.querySelector(".left-column");
+            if (type === 'truyenTranh') {
+                leftColumn.innerHTML = `
+                    <h2>Truyện Đề Cử</h2>
+                    <div class="sub-section">
+                        <button onclick="showContent('truyenChu')">Truyện Chữ</button>
+                    </div>
+                    <p>Nội dung về truyện tranh hiển thị ở đây.</p>`;
+            } else if (type === 'truyenChu') {
+                leftColumn.innerHTML = `
+                    <h2>Truyện Đề Cử</h2>
+                    <div class="sub-section">
+                        <button onclick="showContent('truyenTranh')">Truyện Tranh</button>
+                    </div>
+                    <p>Nội dung về truyện chữ hiển thị ở đây.</p>`;
+            }
+        }
+
+        function updateHistory(storyCardHtml) {
+            const rightColumn = document.querySelector(".historyL");
+            let historyList = rightColumn.querySelector(".history-list");
+
+            if (!historyList) {
+                historyList = document.createElement("div");
+                historyList.className = "history-list";
+                rightColumn.appendChild(historyList);
+            }
+
+            historyList.innerHTML += storyCardHtml;
+        }
+
+
+    </script>
+    <main>
+        <section class="left-column">
+            <h2>Truyện Đề Cử</h2>
+            <div class="sub-section">
+                <button onclick="showContent('truyenTranh')">Truyện Tranh</button>
+                <button onclick="showContent('truyenChu')">Truyện Chữ</button>
+            </div>
+        </section>
+        <section class="center-column">
+            <h2>Truyện Hot</h2>
+            <div class="hotlist">
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen1.jpg" alt="Truyện Võ">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">Truyền Võ</a></h3>
+                        <p><strong>Chapters:</strong> 310</p>
+                        <p><strong>Lượt Xem:</strong> 3M</p>
+                        <p><strong>Theo Dõi:</strong> 36,737</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen2.jpg" alt="Đồ Đệ Nữ Đế">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">Đồ Đệ Nữ Đế</a></h3>
+                        <p><strong>Chapters:</strong> 10</p>
+                        <p><strong>Lượt Xem:</strong> 392K</p>
+                        <p><strong>Theo Dõi:</strong> 25,000</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="Isekai NTR">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">Isekai NTR</a></h3>
+                        <p><strong>Chapters:</strong> 61</p>
+                        <p><strong>Lượt Xem:</strong> 6K</p>
+                        <p><strong>Theo Dõi:</strong> 33,429</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="Adame">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">Adame</a></h3>
+                        <p><strong>Chapters:</strong> 56</p>
+                        <p><strong>Lượt Xem:</strong> 66K</p>
+                        <p><strong>Theo Dõi:</strong> 330,429</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="LOFI">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
+                        <p><strong>Chapters:</strong> 12</p>
+                        <p><strong>Lượt Xem:</strong> 55K</p>
+                        <p><strong>Theo Dõi:</strong> 10,429</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="right-column">
+            <h2>Lịch Sử Đọc Truyện</h2>
+            <div class="historyL"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Truyện Tranh Online. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
