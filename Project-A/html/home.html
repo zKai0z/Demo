@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Name Novel</title>
+    <link rel="icon" href="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1">
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-image: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148809724.jpg");
+        }
+        header a{text-decoration: none;color:azure;}
+
+        header .logo,
+        header .right-logo {
+            width: 50px;
+            height: 50px;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        header h1 {
+            text-align: center;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        nav {
+            background-color:rgb(46, 46, 46);
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color:whitesmoke;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            cursor: pointer;
+        }
+
+        .dropbtn {
+            padding: 0px;
+            font-size: 16px;
+            border: none;
+            background-color: transparent;
+            color:whitesmoke;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropcontent {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            text-align: center;
+            width: 700px;
+            margin-left: -170px;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 4;
+        }
+
+        .dropcontent a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropcontent a:hover {
+            background-color: gray;
+            color: #ddd;
+        }
+
+        .show {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start; 
+            gap: 12px; 
+        }
+
+        .show > * { 
+            flex: 0 1 calc(20% - 10px);
+            box-sizing: border-box; 
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .left-column,
+        .center-column,
+        .right-column {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .left-column {width: 330px;height: 780px;margin-left: auto;}
+        .left-column .sub-section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left-column .sub-section button {
+            border: outset #333;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .center-column table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .center-column table th, .center-column table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .center-column table th {
+            background-color: #f4f4f4;
+        }
+
+        .center-column img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-top: 1px solid #ddd;
+        }
+
+        .center-column a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .center-column a:hover {
+            color: blue;
+            cursor: pointer;
+        }
+
+        .center-column .hotlist {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start; 
+            gap: 16px; 
+        }
+
+        .story-card {
+            flex: 1 1 calc(33.333% - 16px); 
+            box-sizing: border-box; 
+            max-width: calc(33.333% - 16px);
+            max-height: 2100px;
+        }
+
+        .story-card img {
+            width: 100%; 
+            height: auto; 
+        }
+
+        .story-card a {
+            display: block;
+            margin-top: 8px; 
+            text-align: center;
+        }
+
+        .right-column {width: 330px;;height: 780px;}
+        .right-column .historyL {
+            display: flex;
+            justify-content: center;   
+            height: 100%;        
+            position: relative;
+        }
+
+        .history-list {
+            width: 100%;
+            text-align: center; 
+            max-height: 700px; 
+            overflow-y: scroll; 
+            scrollbar-width: thin;
+            scrollbar-color: #888 #f4f4f4;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+
+        .history-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .history-list::-webkit-scrollbar-track {
+            background: #f4f4f4;
+        }
+
+        .history-list::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 4px;
+        }
+
+        .history-list::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .tab-btn.active {
+            background-color: #333;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .story-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 700px;
+        }
+
+        .story-list li {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .story-list li .rank {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-right: 10px;
+        }
+
+        .story-list li img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .story-list li .info h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .story-list li .info p {
+            margin: 2px 0;
+            color: gray;
+        }
+        .find {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+        }
+
+        .find input {
+            width: 100%;
+            padding: 10px 40px 10px 10px; 
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            height: 8px;
+        }
+
+        .find .icon {
+            position: absolute;
+            top: 50%;
+            right: 10px; 
+            transform: translateY(-50%);
+            color: #888;
+            cursor: pointer;
+        }
+
+        .find .icon:hover {
+            color: #333; 
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <a class="logo" href="home.html"><img src="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1" width="50px" height="50px" alt=""></a>
+        <a href="home.html"><img src="https://lh3.google.com/u/1/d/173ukoZSY5fbQ-7-CJ0WlYTegWBQtqc4V=w1876-h972-iv1" width="330px" height="120px" alt=""></a>
+        <a class="right-logo" href="account.html"></a>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="home.html">Trang Chủ</a></li>
+            <li class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Thể Loại</button>
+                <div id="myDropdown" class="dropcontent">
+                    <a href="action.html">Hành Động</a>
+                    <a href="romance.html">Lãng Mạn</a>
+                    <a href="comedy.html">Hài Hước</a>
+                    <a href="fantasy.html">Giả Tưởng</a>
+                    <a href="adventure.html">Phiêu lưu</a>
+                    <a href="harem.html">Hậu cung</a>
+                    <a href="manga.html">Manga</a>
+                    <a href="manhua">Manhua</a>
+                    <a href="manhwa">Manhwa</a>
+                </div>
+            </li>
+            <li><a href="">Truyện Mới</a></li>
+            <li><a href="">Liên Hệ</a></li>
+            <li>
+                <div class="find">
+                    <input type="text" placeholder="Tìm Truyện">
+                    <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <script src="https://kit.fontawesome.com/508b433abc.js" crossorigin="anonymous"></script>
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                const dropdowns = document.getElementsByClassName("dropcontent");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        };
+
+        function switchTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`button[onclick="switchTab('${tabId}')"]`).classList.add('active');
+        }
+
+
+
+        function updateHistory(storyCardHtml) {
+            const rightColumn = document.querySelector(".historyL");
+            let historyList = rightColumn.querySelector(".history-list");
+
+            if (!historyList) {
+                historyList = document.createElement("div");
+                historyList.className = "history-list";
+                rightColumn.appendChild(historyList);
+            }
+
+            historyList.innerHTML += storyCardHtml;
+        }
+
+    </script>
+    <main>
+        <section class="left-column">
+            <h2>Truyện Đề Cử</h2>
+            <div class="tab-container">
+                <button class="tab-btn active" onclick="switchTab('truyenTranh')">Truyện Tranh</button>
+                <button class="tab-btn" onclick="switchTab('truyenChu')">Truyện Chữ</button>
+            </div>
+            <div class="tab-content active" id="truyenTranh">
+                <ul class="story-list">
+                    <li>
+                        <span class="rank">01</span>
+                        <a href="">
+                            <img src="/images/truyen1.jpg" alt="Truyện 1">
+                        </a>
+                        <div class="info">
+                            <a href=""><h3>Võ Luyện Đỉnh Phong</h3></a>
+                            <p>Chapter 3813</p>
+                            <p>100M lượt xem</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="rank">02</span>
+                        <a href="">
+                            <img src="/images/truyen2.jpg" alt="Truyện 2">
+                        </a>
+                        <div class="info">
+                            <a href=""><h3>Sự Trở Lại Của Anh Hùng</h3></a>
+                            <p>Chapter 144</p>
+                            <p>1M lượt xem</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content" id="truyenChu">
+                <ul class="story-list">
+                    <li>
+                        <span class="rank">01</span>
+                        <a href="">
+                            <img src="/images/truyen3.jpg" alt="Truyện 3">
+                        </a>
+                        <div class="info">
+                            <a href=""><h3>Ta Xuyên Không Với Max Điểm</h3></a>
+                            <p>Chapter 110</p>
+                            <p>1K lượt xem</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="rank">02</span>
+                        <a href="">
+                            <img src="/images/truyen4.jpg" alt="Truyện 4">
+                        </a>
+                        <div class="info">
+                            <a href=""><h3>Chính Nghĩa Không!!</h3></a>
+                            <p>Chapter 108</p>
+                            <p>3 lượt xem</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="center-column">
+            <h2>Truyện Hot</h2>
+            <div class="hotlist">
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen1.jpg" alt="Truyện Võ">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">Truyền Võ</a></h3>
+                        <p><strong>Chapters:</strong> 310</p>
+                        <p><strong>Lượt Xem:</strong> 3M</p>
+                        <p><strong>Theo Dõi:</strong> 36,737</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen2.jpg" alt="Đồ Đệ Nữ Đế">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">Đồ Đệ Nữ Đế</a></h3>
+                        <p><strong>Chapters:</strong> 10</p>
+                        <p><strong>Lượt Xem:</strong> 392K</p>
+                        <p><strong>Theo Dõi:</strong> 25,000</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="Isekai NTR">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">Isekai NTR</a></h3>
+                        <p><strong>Chapters:</strong> 61</p>
+                        <p><strong>Lượt Xem:</strong> 6K</p>
+                        <p><strong>Theo Dõi:</strong> 33,429</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="Adame">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">Adame</a></h3>
+                        <p><strong>Chapters:</strong> 56</p>
+                        <p><strong>Lượt Xem:</strong> 66K</p>
+                        <p><strong>Theo Dõi:</strong> 330,429</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="LOFI">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
+                        <p><strong>Chapters:</strong> 12</p>
+                        <p><strong>Lượt Xem:</strong> 55K</p>
+                        <p><strong>Theo Dõi:</strong> 10,429</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="LOFI">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
+                        <p><strong>Chapters:</strong> 12</p>
+                        <p><strong>Lượt Xem:</strong> 55K</p>
+                        <p><strong>Theo Dõi:</strong> 10,429</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="LOFI">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
+                        <p><strong>Chapters:</strong> 12</p>
+                        <p><strong>Lượt Xem:</strong> 55K</p>
+                        <p><strong>Theo Dõi:</strong> 10,429</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="LOFI">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
+                        <p><strong>Chapters:</strong> 12</p>
+                        <p><strong>Lượt Xem:</strong> 55K</p>
+                        <p><strong>Theo Dõi:</strong> 10,429</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="LOFI">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
+                        <p><strong>Chapters:</strong> 12</p>
+                        <p><strong>Lượt Xem:</strong> 55K</p>
+                        <p><strong>Theo Dõi:</strong> 10,429</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="LOFI">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
+                        <p><strong>Chapters:</strong> 12</p>
+                        <p><strong>Lượt Xem:</strong> 55K</p>
+                        <p><strong>Theo Dõi:</strong> 10,429</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="LOFI">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
+                        <p><strong>Chapters:</strong> 12</p>
+                        <p><strong>Lượt Xem:</strong> 55K</p>
+                        <p><strong>Theo Dõi:</strong> 10,429</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="LOFI">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
+                        <p><strong>Chapters:</strong> 12</p>
+                        <p><strong>Lượt Xem:</strong> 55K</p>
+                        <p><strong>Theo Dõi:</strong> 10,429</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="LOFI">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
+                        <p><strong>Chapters:</strong> 12</p>
+                        <p><strong>Lượt Xem:</strong> 55K</p>
+                        <p><strong>Theo Dõi:</strong> 10,429</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                        <img src="/images/truyen3.jpg" alt="LOFI">
+                    </a>
+                    <div class="story-info">
+                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
+                        <p><strong>Chapters:</strong> 12</p>
+                        <p><strong>Lượt Xem:</strong> 55K</p>
+                        <p><strong>Theo Dõi:</strong> 10,429</p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        <section class="right-column">
+            <h2>Lịch Sử Đọc Truyện</h2>
+            <div class="historyL"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Truyện Tranh Online. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
