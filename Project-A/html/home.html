@@ -2,10 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=0">
     <title>No Name Novel</title>
     <link rel="icon" href="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1">
     <style> 
+        /*phone layout*/ 
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            .center-column,
+            .left-column,
+            .right-column {
+                width: 100%;
+            }
+            .right-column {
+                width: 33.333%;
+            }
+            .left-column {
+                width: 33.333%;
+            }
+
+            .show > * {
+                flex: 0 1 calc(33.33% - 10px); 
+            }
+
+            .tab-container {
+                margin-bottom: 5px; 
+            }
+
+            .history-list {
+                max-height: calc(700px / 3);
+            }
+
+            .story-card {
+                max-width: calc(33.33% - 10px);
+            }
+        }
+      
+        /*Header*/
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -18,6 +54,12 @@
             align-items: center;
             padding: 10px;
             background-image: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148809724.jpg");
+        }
+        header img{
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            width: auto;
         }
         header a{text-decoration: none;color:azure;}
 
@@ -111,6 +153,70 @@
             box-sizing: border-box; 
         }
 
+        .find {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+        }
+
+        .find input {
+            width: 100%;
+            padding: 10px 40px 10px 10px; 
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            height: 8px;
+        }
+
+        .find .icon {
+            position: absolute;
+            top: 50%;
+            right: 10px; 
+            transform: translateY(-50%);
+            color: #888;
+            cursor: pointer;
+        }
+
+        .find .icon:hover {
+            color: #333; 
+        }
+
+        .logo {margin-left: 2%;}
+        .right-logo {
+            margin-right: 2%;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .account-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 20%;
+            padding: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .account-dropdown a {
+            display: block;
+            width: 44px;
+            font-size: 12px;
+            padding: 4px 6px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .account-dropdown a:hover {
+            background: #f0f0f0;
+        }
+
+        .right-logo:hover .account-dropdown {
+            display: block;
+        }
+
         main {
             display: grid;
             grid-template-columns: 1fr 2fr 1fr;
@@ -118,6 +224,7 @@
             padding: 10px;
         }
 
+        /*Body content*/
         .left-column,
         .center-column,
         .right-column {
@@ -127,43 +234,10 @@
             text-align: center;
         }
 
-        .left-column {width: 330px;height: 780px;margin-left: auto;}
-        .left-column .sub-section {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .left-column .sub-section button {
-            border: outset #333;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .center-column table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .center-column table th, .center-column table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-
-        .center-column table th {
-            background-color: #f4f4f4;
-        }
-
+        /*center-contents*/
         .center-column img {
             max-width: 100px;
             height: auto;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #f4f4f4;
-            border-top: 1px solid #ddd;
         }
 
         .center-column a {
@@ -184,9 +258,9 @@
         }
 
         .story-card {
-            flex: 1 1 calc(33.333% - 16px); 
+            flex: 1 1 calc(25% - 16px); 
             box-sizing: border-box; 
-            max-width: calc(33.333% - 16px);
+            max-width: calc(25% - 16px);
             max-height: 2100px;
         }
 
@@ -201,6 +275,7 @@
             text-align: center;
         }
 
+        /*right-contents*/
         .right-column {width: 330px;;height: 780px;}
         .right-column .historyL {
             display: flex;
@@ -241,6 +316,20 @@
 
         .history-list::-webkit-scrollbar-thumb:hover {
             background: #555;
+        }
+
+        /*left-contents*/
+
+        .left-column {width: 330px;height: 780px;margin-left: auto;}
+        .left-column .sub-section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left-column .sub-section button {
+            border: outset #333;
+            padding: 10px;
+            cursor: pointer;
         }
 
         .tab-container {
@@ -308,34 +397,14 @@
             margin: 2px 0;
             color: gray;
         }
-        .find {
-            position: relative;
-            display: inline-block;
-            width: 200px;
-        }
 
-        .find input {
-            width: 100%;
-            padding: 10px 40px 10px 10px; 
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            height: 8px;
+        /*foot-content*/
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-top: 1px solid #ddd;
         }
-
-        .find .icon {
-            position: absolute;
-            top: 50%;
-            right: 10px; 
-            transform: translateY(-50%);
-            color: #888;
-            cursor: pointer;
-        }
-
-        .find .icon:hover {
-            color: #333; 
-        }
-
 
     </style>
 </head>
@@ -343,7 +412,13 @@
     <header>
         <a class="logo" href="home.html"><img src="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1" width="50px" height="50px" alt=""></a>
         <a href="home.html"><img src="https://lh3.google.com/u/1/d/173ukoZSY5fbQ-7-CJ0WlYTegWBQtqc4V=w1876-h972-iv1" width="330px" height="120px" alt=""></a>
-        <a class="right-logo" href="account.html"></a>
+        <div class="right-logo" href="account.html">
+            <img src="your-logo.png" alt="Logo" width="50">
+            <div class="account-dropdown">
+                <a href="account.html?mode=signup">Sign Up</a>
+                <a href="account.html?mode=signin">Sign In</a>
+            </div>
+        </div>
     </header>
     <nav>
         <ul>
@@ -416,6 +491,28 @@
             historyList.innerHTML += storyCardHtml;
         }
 
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        window.onload = function () {
+            let mode = getQueryParam('mode');
+
+            let signupBox = document.getElementById('signup-box');
+            let signinBox = document.getElementById('signin-box');
+
+            if (!signupBox || !signinBox) {
+                console.error("Signup or Signin box not found in the DOM!");
+                return;
+            }
+
+            if (mode === 'signup') {
+                signupBox.style.display = 'block';
+            } else if (mode === 'signin') {
+                signinBox.style.display = 'block';
+            }
+        };
     </script>
     <main>
         <section class="left-column">
