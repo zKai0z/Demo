@@ -6,14 +6,6 @@
     <title>No Name Novel</title>
     <link rel="icon" href="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1">
     <style>
-        /*phone layout*/ 
-        @media (max-width: 768px) {
-            body {
-                font-size: 16px;
-            }
-        }
-
-      
         /*Header*/
         body {
             font-family: Arial, sans-serif;
@@ -23,23 +15,30 @@
 
         header {
             display: flex;
-            justify-content: space-between;
+            flex-direction: row;
             align-items: center;
+            justify-content: space-between;
+            text-align: center;
             padding: 10px;
             background-image: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148809724.jpg");
         }
-        header img{
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
-            width: auto;
+
+        header img {
+            width: 100%;
+            height: auto;
         }
+
         header a{text-decoration: none;color:azure;}
 
-        header .logo,
+        header .home-logo {
+            width: 70px;
+            height: 30px;
+            padding: 15px;
+        }
+        header .logo, 
         header .right-logo {
-            width: 50px;
-            height: 50px;
+            width: 20px;
+            height: 20px;
             background-color: #ddd;
             display: flex;
             justify-content: center;
@@ -48,46 +47,49 @@
         }
 
         header h1 {
-            text-align: center;
-            margin: 0;
-            flex-grow: 1;
+            margin: 10px 0;
         }
 
         nav {
-            background-color:rgb(46, 46, 46);
+            background-color: rgb(46, 46, 46);
             color: white;
+            padding: 10px 0;
         }
 
         nav ul {
             display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
             list-style: none;
-            padding: 10px;
+            padding: 0;
             margin: 0;
-            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 5px 0;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         nav ul li a {
             text-decoration: none;
-            color:whitesmoke;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-            cursor: pointer;
-        }
-
-        .dropbtn {
-            padding: 0px;
-            font-size: 16px;
-            border: none;
-            background-color: transparent;
-            color:whitesmoke;
-            cursor: pointer;
+            color: whitesmoke;
+            font-size: 8px;
         }
 
         .dropdown {
             position: relative;
-            display: inline-block;
+            text-align: center;
+        }
+
+        .dropbtn {
+            font-size: 8px;
+            border: none;
+            background-color: transparent;
+            color: whitesmoke;
+            cursor: pointer;
+            padding: 5px;
         }
 
         .dropcontent {
@@ -95,18 +97,17 @@
             position: absolute;
             background-color: #f1f1f1;
             text-align: center;
-            width: 700px;
-            margin-left: -170px;
-            min-width: 120px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            min-width: 50px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 4;
+            width: 150px;
         }
 
         .dropcontent a {
             color: black;
-            padding: 12px 16px;
-            text-decoration: none;
+            padding: 10px;
             display: block;
+            text-decoration: none;
         }
 
         .dropcontent a:hover {
@@ -125,10 +126,11 @@
             flex: 0 1 calc(20% - 10px);
             box-sizing: border-box; 
         }
+
         .find {
             position: relative;
             display: inline-block;
-            width: 200px;
+            width: 100px;
         }
 
         .find input {
@@ -138,6 +140,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             height: 8px;
+            font-size: 8px;
         }
 
         .find .icon {
@@ -161,113 +164,262 @@
             cursor: pointer;
         }
 
-        .account-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            background: white;
-            border: 1px solid #ccc;
-            border-radius: 20%;
-            padding: 5px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .account-dropdown a {
-            display: block;
-            width: 44px;
-            font-size: 12px;
-            padding: 4px 6px;
-            text-decoration: none;
-            color: black;
-        }
-
-        .account-dropdown a:hover {
-            background: #f0f0f0;
-        }
-
         .right-logo:hover .account-dropdown {
             display: block;
         }
-   
 
         main {
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
-            gap: 10px;
-            padding: 10px;
+            padding: 40px;
+            background-color: #888;
         }
 
-        /*body contents*/
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+        /* Main Content */
+        .main {
+            border: 0px solid transparent;
+            border-radius: 25px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-left: 10px;
+            margin-left: 5%;
+            margin-right: 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            height: 300px;
+            background-color: white;
+        }
+
+        /* Forms */
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             text-align: center;
+            padding: 10px;
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 12px;
         }
-        .container {
-            max-width: 768px;
-            min-height: 600px;
-            margin: auto;
-            margin-top: 60px;
-            padding: 20px;
-            background: #d8d8d8;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        form input, .signin, p {
+            padding: 5px;
+            margin-bottom: 25px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 8px;
         }
-        .profile-pic {
+        form .signin {
+            background-color: #007bff;
+            color: white;
+            width: 30%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 8px;
+        }
+        form input {
+            width: 70%;
+            border: 1px solid #888;
+            border-radius: 5px;
+        }
+        form input:hover ,button:hover {
+            outline: none;
+            border: 1px solid #007bff;
+        }
+        form input:focus ,button:focus {
+            outline: none;
+            border: 1px solid #007bff;
+        }
+        form .fa-solid {
+            position: absolute;
+            right: 16%;
+            top: 12%;
+            font-size: 10px;
+        }
+        .forgotpassword {
+            text-align: center;
+            font-size: 11px;
+            margin-bottom: 20px;
+        }
+        .remember {
+            display: flex;
+            align-items: center;
+            height: 10%;
+            font-size: 11px;
+        }
+        .remember input{
+            width: 10%;
+            height: 30%;
+            margin-left: 5%;
+        }
+        .remember label{
+            margin-right: 5%;
+        }
+        .remember p{
+            font-size: 11px;
+            margin: 0;
+            margin-left: 5%;
+        }
+
+        /*account */
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 14px;
+            gap: 10px;
+        }
+
+        .profile-container img {
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-        .hidden {
-            display: none;
-        }
-        .account-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            margin-bottom: 15px;
         }
 
-        .form-box {
-            display: none;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background: white;
-            width: 300px;
-            text-align: center;
-        }
-
-        .form-box input {
-            width: 90%;
-            margin: 10px 0;
-            padding: 8px;
-        }
-
-        .form-box button {
-            width: 100%;
-            padding: 10px;
-            background: blue;
-            color: white;
+        .profile-container button {
+            background-color: #00ffc8;
+            color: rgb(0, 0, 0);
+            width: 30%;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
+            margin-bottom: 8px;
+            margin-top: 8px;
         }
 
+        .profile-container p {
+            margin: 0;
+            font-size: 12px;
+        }
+        
+        .profile-container .change-picture {
+            width: 40%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        /*foot-content*/
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1b1b1be8;
+            border-top: 1px solid #ddd;
+            color: white;
+        }
+        /* Desktop View */
+        @media (min-width: 768px) {
+            .main {
+                margin-left: 25%;
+                margin-right: 25%;
+                height: 500px;
+            }
+
+            header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+            }
+
+            header img{
+                display: flex;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+            }
+            
+            header .home-logo {
+                width: 330px;
+                height: 120px;
+                padding: 15px;
+            }
+
+            header .logo,
+            header .right-logo {
+                width: 50px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            nav ul {
+                flex-direction: row;
+                justify-content: center;
+                list-style: none;
+                padding: 10px;
+                margin: 0;
+            }
+            nav ul li {
+                margin: 0 15px;
+            }
+            nav ul li a{
+                font-size: 16px;
+            }
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropcontent {
+                width: 700px;
+                margin-left: -170px;
+                min-width: 120px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            }
+
+            .dropbtn{font-size: 16px;}
+            .find{width: 200px;}
+            .find input{font-size: 16px;}
+
+            form {font-size: 22px;}
+            form input, .signin, p {
+                font-size: 16px;
+            }
+            form input {
+                width: 50%;
+            }
+            form .signin {
+                width: 20%;
+            }
+            form .fa-solid {
+                right: 26%;
+                font-size: 16px;
+            }
+            .remember label{
+                width: 20%;
+                font-size: 16px;
+            }
+            .remember p,.remember input{
+                font-size: 16px;
+                margin-left: 10%;
+            }
+            .forgotpassword {
+                font-size: 16px;
+            }
+            .profile-container p{font-size: 16px;}
+            .profile-container button{width: 20%;}
+            .profile-container .change-picture{width: 30%;}
+        }
+        
     </style>
 </head>
 <body>
     <header>
         <a class="logo" href="home.html"><img src="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1" width="50px" height="50px" alt=""></a>
-        <a href="home.html"><img src="https://lh3.google.com/u/1/d/173ukoZSY5fbQ-7-CJ0WlYTegWBQtqc4V=w1876-h972-iv1" width="330px" height="120px" alt=""></a>
-        <div class="right-logo" href="account.html">
+        <a href="home.html" class="home-logo"><img src="https://lh3.google.com/u/1/d/173ukoZSY5fbQ-7-CJ0WlYTegWBQtqc4V=w1876-h972-iv1" alt=""></a>
+        <div class="right-logo" onclick="redirectToAccount()">
             <img src="your-logo.png" alt="Logo" width="50">
-            <div class="account-dropdown">
-                <a href="account.html?mode=signup">Sign Up</a>
-                <a href="account.html?mode=signin">Sign In</a>
-            </div>
-        </div>
+        </div>        
     </header>
     <nav>
         <ul>
@@ -296,12 +448,95 @@
             </li>
         </ul>
     </nav>
+    
+    <main>
+        <div class="main">
+            <div id="signinContainer">
+                <form onsubmit="handleSignIn(event)">
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" id="username" placeholder="Username" required>
+        
+                    <label for="password"><b>Password</b></label>
+                    <div style="position: relative;">
+                        <input type="password" id="password" placeholder="Password" required>
+                        <i class="fa-solid fa-eye" id="togglePassword" onclick="togglePasswordVisibility()"></i>
+                    </div>
+        
+                    <button type="submit" class="signin">Sign In</button>
+                </form>
+        
+                <div class="forgotpassword">
+                    <a href="#">Forgot your password?</a>
+                </div>
+        
+                <div class="remember">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe"> Remember me </label>
+                    <p>Don't have an account? <a href="#" onclick="redirectToSignUp()">Sign Up</a></p>
+                </div>
+            </div>
+        
+            <div id="signupContainer" style="display: none;">
+                <form onsubmit="handleSignUp(event)">
+                    <label for="newUsername"><b>Username</b></label>
+                    <input type="text" id="newUsername" placeholder="Username" required>
+        
+                    <label for="email"><b>Email</b></label>
+                    <input type="email" id="email" placeholder="Email" required>
+        
+                    <label for="newPassword"><b>Password</b></label>
+                    <div style="position: relative;">
+                        <input type="password" id="newPassword" placeholder="Password" required>
+                        <i class="fa-solid fa-eye" id="toggleNewPassword" onclick="toggleNewPasswordVisibility()"></i>
+                    </div>
+        
+                    <label for="confirmPassword"><b>Confirm Password</b></label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        
+                    <button type="submit" class="signin">Sign Up</button>
+                </form>
+        
+                <div class="remember">
+                    <input type="checkbox" id="terms">
+                    <label for="terms"> I agree to the terms and conditions </label>
+                    <p>Already have an account? <a href="#" onclick="showSignIn()">Sign In</a></p>
+                </div>
+        
+            </div>
+
+            <div class="account-menu" id="accountMenu" style="display: none;">
+                <div class="profile-container">
+                    <div>
+                        <img id="profilePic" src="default-profile.png" alt="Profile Picture">
+                        <input type="file" id="uploadProfilePic" style="display: none;" onchange="changeProfilePic(event)">
+                    </div>
+                    <div>
+                        <button onclick="document.getElementById('uploadProfilePic').click()" class="change-picture">Change Picture</button>
+                    </div>
+                    <div>
+                        <p><b>Username:</b> <span id="accountUsername"></span></p>
+                        <p><b>Email:</b> <span id="accountEmail"></span></p>
+                    </div>
+                    <div>
+                        <button onclick="editProfile()">Edit Profile</button>
+                        <button onclick="logout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Truyện Tranh Online. All Rights Reserved.</p>
+    </footer>
+    
     <script src="https://kit.fontawesome.com/508b433abc.js" crossorigin="anonymous"></script>
     <script>
+        // Dropdown menu functionality
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
-
+    
         window.onclick = function (event) {
             if (!event.target.matches('.dropbtn')) {
                 const dropdowns = document.getElementsByClassName("dropcontent");
@@ -313,45 +548,187 @@
                 }
             }
         };
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
+    
+        // Redirect to account
+        function redirectToAccount() {
+            const isLoggedIn = localStorage.getItem("loggedInUser"); 
+            window.location.href = isLoggedIn ? "account.html" : "account.html?mode=signin";
         }
-
-        window.onload = function () {
-            let mode = getQueryParam('mode');
-
-            let signupBox = document.getElementById('signup-box');
-            let signinBox = document.getElementById('signin-box');
-
-            if (!signupBox || !signinBox) {
-                console.error("Signup or Signin box not found in the DOM!");
+    
+        // Handle sign-in
+        function handleSignIn(event) {
+            event.preventDefault();
+    
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+            const user = storedUsers.find(u => u.username === username);
+    
+            if (!user) {
+                alert('Username not found. Please sign up.');
                 return;
             }
-
-            if (mode === 'signup') {
-                signupBox.style.display = 'block';
-            } else if (mode === 'signin') {
-                signinBox.style.display = 'block';
+            if (user.password !== password) {
+                alert('Incorrect password. Please try again.');
+                return;
             }
-        };
-    </script>
-    <script src="app.js"></script>
-    <div class="account-container">
-        <div id="signup-box" class="form-box">
-            <h2>Sign Up</h2>
-            <input type="text" placeholder="Full Name">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <button>Sign Up</button>
-        </div>
     
-        <div id="signin-box" class="form-box">
-            <h2>Sign In</h2>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <button>Sign In</button>
-        </div>
-    </div>
+            // Store logged-in user
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
+            window.location.href = 'account.html';
+        }
+    
+        // Show sign-up form
+        function redirectToSignUp() {
+            document.getElementById("signupContainer").style.display = "block";
+            document.getElementById("signinContainer").style.display = "none";
+        }
+    
+        // Show sign-in form
+        function showSignIn() {
+            document.getElementById("signupContainer").style.display = "none";
+            document.getElementById("signinContainer").style.display = "block";
+        }
+    
+        // Redirect to an external sign-up page
+        function goToSignUpPage() {
+            window.location.href = 'account.html?mode=signup';
+        }
+    
+        // Toggle password visibility (Sign-in)
+        function togglePasswordVisibility() {
+            const passwordField = document.getElementById('password');
+            const icon = document.getElementById('togglePassword');
+    
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+    
+        // Toggle password visibility (Sign-up)
+        function toggleNewPasswordVisibility() {
+            const passwordField = document.getElementById('newPassword');
+            const icon = document.getElementById('toggleNewPassword');
+    
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }   
+        }
+    
+        // Handle sign-up
+        function handleSignUp(event) {
+            event.preventDefault();
+    
+            const username = document.getElementById("newUsername").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("newPassword").value.trim();
+            const confirmPassword = document.getElementById("confirmPassword").value.trim();
+            const termsChecked = document.getElementById("terms").checked;
+    
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return;
+            }
+            if (!termsChecked) {
+                alert("You must agree to the terms and conditions.");
+                return;
+            }
+    
+            const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+            if (storedUsers.some(user => user.username === username)) {
+                alert("Username already exists. Please use a different one.");
+                return;
+            }
+    
+            const newUser = { username, email, password };
+            storedUsers.push(newUser);
+            localStorage.setItem('users', JSON.stringify(storedUsers));
+    
+            alert("Sign-up successful! Please sign in.");
+            showSignIn();
+        }
+    
+        // Remember me functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const rememberMeCheckbox = document.getElementById('rememberMe');
+            const rememberMe = localStorage.getItem('rememberMe');
+            const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    
+            if (rememberMe && storedUser) {
+                document.getElementById('username').value = storedUser.username;
+                document.getElementById('password').value = storedUser.password;
+                rememberMeCheckbox.checked = true;
+            }
+    
+            rememberMeCheckbox.addEventListener('change', function (e) {
+                if (e.target.checked) {
+                    localStorage.setItem('rememberMe', 'true');
+                } else {
+                    localStorage.removeItem('rememberMe');
+                }
+            });
+        });
+
+        //redirect to account
+        function loadAccountMenu() {
+            const user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user) {
+                document.getElementById("signinContainer").style.display = "none";
+                document.getElementById("signupContainer").style.display = "none";
+                document.getElementById("accountMenu").style.display = "block";
+                document.getElementById("accountUsername").textContent = user.username;
+                document.getElementById("accountEmail").textContent = user.email;
+                if (user.profilePic) {
+                    document.getElementById("profilePic").src = user.profilePic;
+                }
+            }
+        }
+        
+        // Edit profile
+        function editProfile() {
+            const newUsername = prompt("Enter new username:", "");
+            const newEmail = prompt("Enter new email:", "");
+            
+            if (newUsername && newEmail) {
+                let user = JSON.parse(localStorage.getItem('loggedInUser'));
+                user.username = newUsername;
+                user.email = newEmail;
+                localStorage.setItem('loggedInUser', JSON.stringify(user));
+                loadAccountMenu();
+            }
+        }
+        
+        // Change profile picture
+        function changeProfilePic(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    let user = JSON.parse(localStorage.getItem('loggedInUser'));
+                    user.profilePic = e.target.result;
+                    localStorage.setItem('loggedInUser', JSON.stringify(user));
+                    loadAccountMenu();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        // Logout
+        function logout() {
+            localStorage.removeItem('loggedInUser');
+            window.location.reload();
+        }
+        
+        document.addEventListener("DOMContentLoaded", loadAccountMenu);
+    </script>
+    
 </body>
 </html>

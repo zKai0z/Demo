@@ -27,11 +27,9 @@ const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url);
     const pathname = parsedUrl.pathname;
 
-    // Default to 'home.html'
     let requestedFile = pathname === '/' ? '/home.html' : pathname;
     const filePath = path.join(htmlDirectory, requestedFile);
 
-    // Security: Prevent directory traversal
     if (!filePath.startsWith(htmlDirectory)) {
         res.writeHead(403, { 'Content-Type': 'text/plain' });
         res.end('Forbidden');
