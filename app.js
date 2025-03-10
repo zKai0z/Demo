@@ -47,6 +47,65 @@ const server = http.createServer((req, res) => {
     });
 });
 
+app.get("/api/stories", async (req, res) => {
+    try {
+        const stories = await Story.find();
+        res.json(stories);
+    } catch (error) {
+        res.status(500).json({ error: "Error fetching stories" });
+    }
+});
+
+
 server.listen(port, () => {
     console.log(`Server is running at http://${hostname}:${port}`);
 });
+
+/*const express = require("express");
+const mongoose = require("mongoose");
+const path = require("path");
+
+const app = express();
+const port = 3000;
+const hostname = "192.168.1.202";
+
+// Connect to MongoDB
+try {
+    mongoose.connect("mongodb://localhost:27017/mydatabase", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    });
+    console.log("Connected to MongoDB");
+} catch (error) {
+    console.error("MongoDB connection error:", error);
+}
+
+// Define Story Schema & Model
+const StorySchema = new mongoose.Schema({
+    title: String,
+    image: String,
+    chapters: Number,
+    views: String,
+    followers: String
+});
+const Story = mongoose.model("Story", StorySchema);
+
+// Serve static files (HTML, CSS, JS, Images)
+const projectDir = path.join(__dirname, "Project-A");
+app.use(express.static(path.join(projectDir, "html")));
+app.use("/css", express.static(path.join(projectDir, "css")));
+
+// API route to fetch stories
+app.get("/api/stories", async (req, res) => {
+    try {
+        const stories = await Story.find();
+        res.json(stories);
+    } catch (error) {
+        res.status(500).json({ error: "Error fetching stories" });
+    }
+});
+
+app.listen(port, () => {
+    console.log(`Server running at http://${hostname}:${port}`);
+});
+*/

@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=0">
     <title>No Name Novel</title>
     <link rel="icon" href="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1">
+
     <style>
+
         /*Header*/
         body {
             font-family: Arial, sans-serif;
@@ -43,6 +45,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 50%;
+        }
+
+        header .right-logo img{
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
         }
 
@@ -286,7 +294,7 @@
         .profile-container button {
             background-color: #00ffc8;
             color: rgb(0, 0, 0);
-            width: 30%;
+            width: 35%;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -300,7 +308,7 @@
         }
         
         .profile-container .change-picture {
-            width: 40%;
+            width: 45%;
             height: auto;
             margin-bottom: 15px;
         }
@@ -408,7 +416,7 @@
             }
             .profile-container p{font-size: 16px;}
             .profile-container button{width: 20%;}
-            .profile-container .change-picture{width: 30%;}
+            .profile-container .change-picture{width: 25%;}
         }
         
     </style>
@@ -418,7 +426,7 @@
         <a class="logo" href="home.html"><img src="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1" width="50px" height="50px" alt=""></a>
         <a href="home.html" class="home-logo"><img src="https://lh3.google.com/u/1/d/173ukoZSY5fbQ-7-CJ0WlYTegWBQtqc4V=w1876-h972-iv1" alt=""></a>
         <div class="right-logo" onclick="redirectToAccount()">
-            <img src="your-logo.png" alt="Logo" width="50">
+            <img class="profile-pic" src="default-profile.png" alt="Profile Picture">
         </div>        
     </header>
     <nav>
@@ -507,7 +515,7 @@
             <div class="account-menu" id="accountMenu" style="display: none;">
                 <div class="profile-container">
                     <div>
-                        <img id="profilePic" src="default-profile.png" alt="Profile Picture">
+                        <img class="profile-pic" src="default-profile.png" alt="Profile Picture">
                         <input type="file" id="uploadProfilePic" style="display: none;" onchange="changeProfilePic(event)">
                     </div>
                     <div>
@@ -711,15 +719,31 @@
             const file = event.target.files[0];
             if (file) {
                 const reader = new FileReader();
-                reader.onload = function(e) {
-                    let user = JSON.parse(localStorage.getItem('loggedInUser'));
+                reader.onload = function (e) {
+                    let user = JSON.parse(localStorage.getItem('loggedInUser')) || {};
                     user.profilePic = e.target.result;
                     localStorage.setItem('loggedInUser', JSON.stringify(user));
-                    loadAccountMenu();
+
+                    document.querySelectorAll(".profile-pic").forEach(img => {
+                        img.src = e.target.result;
+                    });
                 };
                 reader.readAsDataURL(file);
             }
         }
+
+        // Load profile pictures
+        function loadProfilePictures() {
+            let user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user && user.profilePic) {
+                document.querySelectorAll(".profile-pic").forEach(img => {
+                    img.src = user.profilePic;
+                });
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", loadProfilePictures);
+
         
         // Logout
         function logout() {

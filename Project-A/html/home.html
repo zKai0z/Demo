@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=0">
     <title>No Name Novel</title>
     <link rel="icon" href="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1">
-    <style>   
+
+    <style>
+       
         /*Header*/
         body {
             font-family: Arial, sans-serif;
@@ -43,6 +45,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 50%;
+        }
+
+        header .right-logo img{
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
         }
 
@@ -331,6 +339,11 @@
 
         .tab-content {
             display: none;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            height: 220px;
+            background-color: white;
+            border-radius: 15px;
         }
 
         .tab-content.active {
@@ -341,7 +354,7 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            max-height: 220px;
+            height: 220px;
         }
 
         .story-list li {
@@ -349,7 +362,8 @@
             align-items: center;
             flex-direction: column;
             border-bottom: 1px solid #ddd;
-            padding: 10px 0;
+            padding: 10px;
+            gap: 10px;
         }
 
         .story-list li .rank {
@@ -360,11 +374,11 @@
         }
 
         .story-list li img {
-            width: 10px;
-            height: 10px;
+            width: 50px;
+            height: 70px;
             margin-right: 10px;
             object-fit: cover;
-            border-radius: 4px;
+            border-radius: 5px;
         }
 
         .story-list li .info h3 {
@@ -390,7 +404,7 @@
         /* Desktop View */
         @media (min-width: 768px) {
             main {
-                gap: 10px;
+                gap: 10px; 
                 padding: 10px;
             }
 
@@ -476,6 +490,10 @@
                 height: 30px;
             }
 
+            .tab-content, .tab-content .active{
+                height: 660px;
+            }
+
             .story-card {
                 flex: 1 1 20%;
                 max-width: 30%;
@@ -493,14 +511,16 @@
                 margin: 5px;
             }
         }
+        
     </style>
+
 </head>
 <body>
     <header>
         <a class="logo" href="home.html"><img src="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1" width="50px" height="50px" alt=""></a>
         <a href="home.html" class="home-logo"><img src="https://lh3.google.com/u/1/d/173ukoZSY5fbQ-7-CJ0WlYTegWBQtqc4V=w1876-h972-iv1" alt=""></a>
         <div class="right-logo" onclick="redirectToAccount()">
-            <img src="your-logo.png" alt="Logo" width="50">
+            <img class="profile-pic" src="default-profile.png" alt="Profile Picture">
         </div>   
     </header>
     <nav>
@@ -530,83 +550,6 @@
             </li>
         </ul>
     </nav>
-    <script src="https://kit.fontawesome.com/508b433abc.js" crossorigin="anonymous"></script>
-    <script>
-        function redirectToAccount() {
-            const isLoggedIn = localStorage.getItem("loggedInUser"); 
-
-            if (isLoggedIn) {
-                window.location.href = "account.html";
-            } else {
-                window.location.href = "account.html?mode=signin";
-            }
-        }
-
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        window.onclick = function (event) {
-            if (!event.target.matches('.dropbtn')) {
-                const dropdowns = document.getElementsByClassName("dropcontent");
-                for (let i = 0; i < dropdowns.length; i++) {
-                    const openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        };
-
-        function switchTab(tabId) {
-            const tabs = document.querySelectorAll('.tab-content');
-            const buttons = document.querySelectorAll('.tab-btn');
-
-            tabs.forEach(tab => tab.classList.remove('active'));
-            buttons.forEach(btn => btn.classList.remove('active'));
-
-            document.getElementById(tabId).classList.add('active');
-            document.querySelector(`button[onclick="switchTab('${tabId}')"]`).classList.add('active');
-        }
-
-
-
-        function updateHistory(storyCardHtml) {
-            const rightColumn = document.querySelector(".historyL");
-            let historyList = rightColumn.querySelector(".history-list");
-
-            if (!historyList) {
-                historyList = document.createElement("div");
-                historyList.className = "history-list";
-                rightColumn.appendChild(historyList);
-            }
-
-            historyList.innerHTML += storyCardHtml;
-        }
-
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        window.onload = function () {
-            let mode = getQueryParam('mode');
-
-            let signupBox = document.getElementById('signup-box');
-            let signinBox = document.getElementById('signin-box');
-
-            if (!signupBox || !signinBox) {
-                console.error("Signup or Signin box not found in the DOM!");
-                return;
-            }
-
-            if (mode === 'signup') {
-                signupBox.style.display = 'block';
-            } else if (mode === 'signin') {
-                signinBox.style.display = 'block';
-            }
-        };
-    </script>
     <main>
         <section class="left-column">
             <h2>Truyện Đề Cử</h2>
@@ -628,6 +571,78 @@
                         </div>
                     </li>
                     <li>
+                        <span class="rank">02</span>
+                        <a href="">
+                            <img src="/images/truyen2.jpg" alt="Truyện 2">
+                        </a>
+                        <div class="info">
+                            <a href=""><h3>Sự Trở Lại Của Anh Hùng</h3></a>
+                            <p>Chapter 144</p>
+                            <p>1M lượt xem</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="rank">02</span>
+                        <a href="">
+                            <img src="/images/truyen2.jpg" alt="Truyện 2">
+                        </a>
+                        <div class="info">
+                            <a href=""><h3>Sự Trở Lại Của Anh Hùng</h3></a>
+                            <p>Chapter 144</p>
+                            <p>1M lượt xem</p>
+                        </div>
+                    </li><li>
+                        <span class="rank">02</span>
+                        <a href="">
+                            <img src="/images/truyen2.jpg" alt="Truyện 2">
+                        </a>
+                        <div class="info">
+                            <a href=""><h3>Sự Trở Lại Của Anh Hùng</h3></a>
+                            <p>Chapter 144</p>
+                            <p>1M lượt xem</p>
+                        </div>
+                    </li><li>
+                        <span class="rank">02</span>
+                        <a href="">
+                            <img src="/images/truyen2.jpg" alt="Truyện 2">
+                        </a>
+                        <div class="info">
+                            <a href=""><h3>Sự Trở Lại Của Anh Hùng</h3></a>
+                            <p>Chapter 144</p>
+                            <p>1M lượt xem</p>
+                        </div>
+                    </li><li>
+                        <span class="rank">02</span>
+                        <a href="">
+                            <img src="/images/truyen2.jpg" alt="Truyện 2">
+                        </a>
+                        <div class="info">
+                            <a href=""><h3>Sự Trở Lại Của Anh Hùng</h3></a>
+                            <p>Chapter 144</p>
+                            <p>1M lượt xem</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="rank">02</span>
+                        <a href="">
+                            <img src="/images/truyen2.jpg" alt="Truyện 2">
+                        </a>
+                        <div class="info">
+                            <a href=""><h3>Sự Trở Lại Của Anh Hùng</h3></a>
+                            <p>Chapter 144</p>
+                            <p>1M lượt xem</p>
+                        </div>
+                    </li><li>
+                        <span class="rank">02</span>
+                        <a href="">
+                            <img src="/images/truyen2.jpg" alt="Truyện 2">
+                        </a>
+                        <div class="info">
+                            <a href=""><h3>Sự Trở Lại Của Anh Hùng</h3></a>
+                            <p>Chapter 144</p>
+                            <p>1M lượt xem</p>
+                        </div>
+                    </li><li>
                         <span class="rank">02</span>
                         <a href="">
                             <img src="/images/truyen2.jpg" alt="Truyện 2">
@@ -835,5 +850,125 @@
     <footer>
         <p>&copy; 2025 Truyện Tranh Online. All Rights Reserved.</p>
     </footer>
+
+    <script src="https://kit.fontawesome.com/508b433abc.js" crossorigin="anonymous"></script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("http://localhost:3000/api/stories")
+                .then(response => response.json())
+                .then(stories => {
+                    const hotlistContainer = document.querySelector(".hotlist");
+                    hotlistContainer.innerHTML = "";
+
+                    stories.forEach(story => {
+                        const storyCard = document.createElement("div");
+                        storyCard.classList.add("story-card");
+                        storyCard.innerHTML = `
+                            <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                                <img src="${story.image}" alt="${story.title}">
+                            </a>
+                            <div class="story-info">
+                                <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">${story.title}</a></h3>
+                                <p><strong>Chapters:</strong> ${story.chapters}</p>
+                                <p><strong>Lượt Xem:</strong> ${story.views}</p>
+                                <p><strong>Theo Dõi:</strong> ${story.followers}</p>
+                            </div>
+                        `;
+                        hotlistContainer.appendChild(storyCard);
+                    });
+                })
+                .catch(error => console.error("Error loading stories:", error));
+        });
+
+        function redirectToAccount() {
+            const isLoggedIn = localStorage.getItem("loggedInUser"); 
+
+            if (isLoggedIn) {
+                window.location.href = "account.html";
+            } else {
+                window.location.href = "account.html?mode=signin";
+            }
+        }
+
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                const dropdowns = document.getElementsByClassName("dropcontent");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        };
+
+        function switchTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`button[onclick="switchTab('${tabId}')"]`).classList.add('active');
+        }
+
+
+
+        function updateHistory(storyCardHtml) {
+            const rightColumn = document.querySelector(".historyL");
+            let historyList = rightColumn.querySelector(".history-list");
+
+            if (!historyList) {
+                historyList = document.createElement("div");
+                historyList.className = "history-list";
+                rightColumn.appendChild(historyList);
+            }
+
+            historyList.innerHTML += storyCardHtml;
+        }
+
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        window.onload = function () {
+            let mode = getQueryParam('mode');
+
+            let signupBox = document.getElementById('signup-box');
+            let signinBox = document.getElementById('signin-box');
+
+            if (!signupBox || !signinBox) {
+                console.error("Signup or Signin box not found in the DOM!");
+                return;
+            }
+
+            if (mode === 'signup') {
+                signupBox.style.display = 'block';
+            } else if (mode === 'signin') {
+                signinBox.style.display = 'block';
+            }
+        };
+
+        // Load profile pictures
+        function loadProfilePictures() {
+            let user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user && user.profilePic) {
+                document.querySelectorAll(".profile-pic").forEach(img => {
+                    img.src = user.profilePic;
+                });
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", loadProfilePictures);
+
+    </script>
+
 </body>
 </html>
