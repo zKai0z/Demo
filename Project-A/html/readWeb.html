@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Name Novel</title>
+
+    <style>
+        /*Header*/
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            padding: 10px;
+            background-image: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148809724.jpg");
+        }
+
+        header img {
+            width: 100%;
+            height: auto;
+        }
+
+        header a{text-decoration: none;color:azure;}
+
+        header .home-logo {
+            width: 70px;
+            height: 30px;
+            padding: 15px;
+        }
+        header .logo, 
+        header .right-logo {
+            width: 20px;
+            height: 20px;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        header .right-logo img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        header h1 {
+            margin: 10px 0;
+        }
+
+        nav {
+            background-color: rgb(46, 46, 46);
+            color: white;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 5px 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: whitesmoke;
+            font-size: 8px;
+        }
+
+        .dropdown {
+            position: relative;
+            text-align: center;
+        }
+
+        .dropbtn {
+            font-size: 8px;
+            border: none;
+            background-color: transparent;
+            color: whitesmoke;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .dropcontent {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            text-align: center;
+            min-width: 50px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 4;
+            width: 150px;
+        }
+
+        .dropcontent a {
+            color: black;
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .dropcontent a:hover {
+            background-color: gray;
+            color: #ddd;
+        }
+
+        .show {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start; 
+            gap: 12px; 
+        }
+
+        .show > * { 
+            flex: 0 1 calc(20% - 10px);
+            box-sizing: border-box; 
+        }
+
+        .find {
+            position: relative;
+            display: inline-block;
+            width: 100px;
+        }
+
+        .find input {
+            width: 100%;
+            padding: 10px 40px 10px 10px; 
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            height: 8px;
+            font-size: 8px;
+        }
+
+        .find .icon {
+            position: absolute;
+            top: 50%;
+            right: 10px; 
+            transform: translateY(-50%);
+            color: #888;
+            cursor: pointer;
+        }
+
+        .find .icon:hover {
+            color: #333; 
+        }
+
+        .logo {margin-left: 2%;}
+        .right-logo {
+            margin-right: 2%;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .right-logo:hover .account-dropdown {
+            display: block;
+        }
+
+        main {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            padding: 10px;
+            background-color: #888;
+        }
+        /* Desktop View */
+        @media (min-width: 768px) {
+            main {
+                gap: 10px; 
+                padding: 10px;
+            }
+
+            header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+            }
+
+            header img{
+                display: flex;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+            }
+            
+            header .home-logo {
+                width: 330px;
+                height: 120px;
+                padding: 15px;
+            }
+
+            header .logo,
+            header .right-logo {
+                width: 50px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            nav ul {
+                flex-direction: row;
+                justify-content: center;
+                list-style: none;
+                padding: 10px;
+                margin: 0;
+            }
+            nav ul li {
+                margin: 0 15px;
+            }
+            nav ul li a{
+                font-size: 16px;
+            }
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropcontent {
+                width: 700px;
+                margin-left: -170px;
+                min-width: 120px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            }
+
+            .dropbtn{font-size: 16px;}
+            .find{width: 200px;}
+            .find input{font-size: 16px;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="logo" href="home.html"><img src="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1" width="50px" height="50px" alt=""></a>
+        <a href="home.html" class="home-logo"><img src="https://lh3.google.com/u/1/d/173ukoZSY5fbQ-7-CJ0WlYTegWBQtqc4V=w1876-h972-iv1" alt=""></a>
+        <div class="right-logo" onclick="redirectToAccount()">
+            <img class="profile-pic" src="default-profile.png" alt="Profile Picture">
+        </div>   
+    </header>
+    <nav>
+        <ul>
+            <li><a href="home.html">Trang Chủ</a></li>
+            <li class="dropdown">
+                <button onclick="toggleDropdown()" class="dropbtn">Thể Loại</button>
+                <div id="myDropdown" class="dropcontent">
+                    <a href="#" onclick="redirectToGenre('hanh-dong')">Hành Động</a>
+                    <a href="#" onclick="redirectToGenre('lang-man')">Lãng Mạn</a>
+                    <a href="#" onclick="redirectToGenre('hai-huoc')">Hài Hước</a>
+                    <a href="#" onclick="redirectToGenre('gia-tuong')">Giả Tưởng</a>
+                    <a href="#" onclick="redirectToGenre('phieu-luu')">Phiêu Lưu</a>
+                    <a href="#" onclick="redirectToGenre('hau-cung')">Hậu Cung</a>
+                    <a href="#" onclick="redirectToGenre('manga')">Manga</a>
+                    <a href="#" onclick="redirectToGenre('manhua')">Manhua</a>
+                    <a href="#" onclick="redirectToGenre('manhwa')">Manhwa</a>
+                </div>
+            </li>
+            <li><a href="">Theo Dõi</a></li>
+            <li><a href="">Truyện Mới</a></li>
+            <li><a href="">Liên Hệ</a></li>
+            <li>
+                <div class="find">
+                    <input type="text" placeholder="Tìm Truyện">
+                    <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <main>
+
+    </main>
+    <footer>
+        <p>&copy; 2025 Truyện Tranh Online. All Rights Reserved.</p>
+    </footer>
+    <script>
+        function redirectToGenre(genre) {
+            window.location.href = `genre.html?theloai=${genre}`;
+        }
+
+        function toggleDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Đóng dropdown khi click ngoài
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                document.getElementById("myDropdown").classList.remove("show");
+            }
+        };
+        function redirectToAccount() {
+            const isLoggedIn = localStorage.getItem("loggedInUser"); 
+
+            if (isLoggedIn) {
+                window.location.href = "account.html";
+            } else {
+                window.location.href = "account.html?mode=signin";
+            }
+        }
+
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                const dropdowns = document.getElementsByClassName("dropcontent");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        };
+        
+        // Load profile pictures
+        function loadProfilePictures() {
+            let user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user && user.profilePic) {
+                document.querySelectorAll(".profile-pic").forEach(img => {
+                    img.src = user.profilePic;
+                });
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", loadProfilePictures);
+    </script>
+</body>
+</html>

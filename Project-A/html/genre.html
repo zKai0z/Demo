@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bộ Lọc Thể Loại</title>
+    <title>No Name Novel</title>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <style>
@@ -292,6 +292,8 @@
             }
             .main {
                 align-items: center;
+                padding: 0;
+                gap: 0;
             }
 
             header {
@@ -356,9 +358,10 @@
 
             .filter-container {
                 display: flex;
-                max-width: 700px;
+                max-width: 900px;
                 width: 100%;
                 align-items: center;
+                margin-bottom: 0;
             }
 
             .filter-container select {
@@ -451,7 +454,7 @@
                         </div>
                     </div>
 
-                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="1500000" data-chapters="120">
+                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="150000" data-chapters="12">
                         <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
                             <img src="https://product.hstatic.net/200000343865/product/truyen-tranh-ki-nang-cho-nguoi-tre_nghe-thuat-duy-tri_4fbf4c727ae743398a24ea81d766c347.jpg" alt="Truyện Võ">
                         </a>
@@ -463,7 +466,7 @@
                         </div>
                     </div>
 
-                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="1500000" data-chapters="120">
+                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="100000" data-chapters="20">
                         <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
                             <img src="https://product.hstatic.net/200000343865/product/truyen-tranh-ki-nang-cho-nguoi-tre_nghe-thuat-duy-tri_4fbf4c727ae743398a24ea81d766c347.jpg" alt="Truyện Võ">
                         </a>
@@ -475,7 +478,7 @@
                         </div>
                     </div>
 
-                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="1500000" data-chapters="120">
+                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="15000" data-chapters="120">
                         <img src="https://via.placeholder.com/150" alt="Truyện 2">
                         <div class="story-info">
                             <h3>Truyện 2</h3>
@@ -485,14 +488,14 @@
                         </div>
                     </div>
 
-                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="1500000" data-chapters="120">
+                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="100" data-chapters="10">
                         <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
                             <img src="https://product.hstatic.net/200000343865/product/truyen-tranh-ki-nang-cho-nguoi-tre_nghe-thuat-duy-tri_4fbf4c727ae743398a24ea81d766c347.jpg" alt="Truyện Võ">
                         </a>
                         <div class="story-info">
                             <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">nghe-thuat-duy-tri</a></h3>
                             <p><strong>Chapters:</strong> 310</p>
-                            <p><strong>Lượt Xem:</strong> 3M</p>
+                            <p><strong>Lượt Xem:</strong> ${story.views}</p>
                             <p><strong>Theo Dõi:</strong> 36,737</p>
                         </div>
                     </div>

@@ -957,29 +957,6 @@
             historyList.innerHTML += storyCardHtml;
         }
 
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        window.onload = function () {
-            let mode = getQueryParam('mode');
-
-            let signupBox = document.getElementById('signup-box');
-            let signinBox = document.getElementById('signin-box');
-
-            if (!signupBox || !signinBox) {
-                console.error("Signup or Signin box not found in the DOM!");
-                return;
-            }
-
-            if (mode === 'signup') {
-                signupBox.style.display = 'block';
-            } else if (mode === 'signin') {
-                signinBox.style.display = 'block';
-            }
-        };
-
         // Load profile pictures
         function loadProfilePictures() {
             let user = JSON.parse(localStorage.getItem('loggedInUser'));
