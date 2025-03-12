@@ -47,16 +47,6 @@ const server = http.createServer((req, res) => {
     });
 });
 
-app.get("/api/stories", async (req, res) => {
-    try {
-        const stories = await Story.find();
-        res.json(stories);
-    } catch (error) {
-        res.status(500).json({ error: "Error fetching stories" });
-    }
-});
-
-
 server.listen(port, () => {
     console.log(`Server is running at http://${hostname}:${port}`);
 });

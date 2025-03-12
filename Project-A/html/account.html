@@ -177,7 +177,7 @@
         }
 
         main {
-            padding: 40px;
+            padding: 20px;
             background-color: #888;
         }
 
@@ -186,15 +186,12 @@
             border: 0px solid transparent;
             border-radius: 25px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            margin-left: 10px;
-            margin-left: 5%;
-            margin-right: 5%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             gap: 10px;
             padding: 10px;
-            height: 300px;
+            height: 700px;
             background-color: white;
         }
 
@@ -271,46 +268,108 @@
         }
 
         /*account */
+        .account-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10px;
+        }
+
         .profile-container {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
             text-align: center;
             padding: 10px;
-            margin-top: 10px;
+            max-width: 300px;
+            height: 90%;
             margin-left: 10px;
             margin-right: 10px;
             font-size: 14px;
-            gap: 10px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .profile-container img {
-            width: 100px;
-            height: 100px;
+        .left-column, .right-column {
+            width: 70%;
+            padding: 10px;
+        }
+
+        .left-column {
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background: #fff;
+        }
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background: #fff;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .account-info {
+            padding: 10px;
+        }
+
+        .profile-pic {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            margin-bottom: 15px;
+            object-fit: cover;
+            display: block;
+            margin: 10px auto;
         }
 
-        .profile-container button {
-            background-color: #00ffc8;
-            color: rgb(0, 0, 0);
-            width: 35%;
+        .change-picture {
+            display: block;
+            margin-top: 10px;
+            padding: 8px;
+            background: #007bff;
+            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-bottom: 8px;
-            margin-top: 8px;
+            width: 55%;
+            height: 25%;
+            margin-bottom: 15px;
+        }
+
+        .change-picture:hover {
+            background: #33fff5;
         }
 
         .profile-container p {
             margin: 0;
             font-size: 12px;
         }
-        
-        .profile-container .change-picture {
-            width: 45%;
-            height: auto;
-            margin-bottom: 15px;
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .buttons button {
+            width: 200px;
+            padding: 8px;
+            margin: 5px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background: #218838;
         }
 
         /*foot-content*/
@@ -326,7 +385,7 @@
             .main {
                 margin-left: 25%;
                 margin-right: 25%;
-                height: 500px;
+                height: 600px;
             }
 
             header {
@@ -414,9 +473,31 @@
             .forgotpassword {
                 font-size: 16px;
             }
+            .account-menu {
+                margin-top: -45px;
+                flex-direction: row;
+                height: 400px;
+            }
+            .profile-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                max-width: 700px;
+                height: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .left-column,.right-column {
+                width: 40%;
+                height: 75%;
+            }
+            .buttons {
+                margin-left: auto;
+                margin-right: auto;
+            }
             .profile-container p{font-size: 16px;}
-            .profile-container button{width: 20%;}
-            .profile-container .change-picture{width: 25%;}
+            .profile-container .change-picture{width: 40%;height: 15%;}
         }
         
     </style>
@@ -433,20 +514,21 @@
         <ul>
             <li><a href="home.html">Trang Chủ</a></li>
             <li class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Thể Loại</button>
+                <button onclick="toggleDropdown()" class="dropbtn">Thể Loại</button>
                 <div id="myDropdown" class="dropcontent">
-                    <a href="action.html">Hành Động</a>
-                    <a href="romance.html">Lãng Mạn</a>
-                    <a href="comedy.html">Hài Hước</a>
-                    <a href="fantasy.html">Giả Tưởng</a>
-                    <a href="adventure.html">Phiêu lưu</a>
-                    <a href="harem.html">Hậu cung</a>
-                    <a href="manga.html">Manga</a>
-                    <a href="manhua">Manhua</a>
-                    <a href="manhwa">Manhwa</a>
+                    <a href="#" onclick="redirectToGenre('hanh-dong')">Hành Động</a>
+                    <a href="#" onclick="redirectToGenre('lang-man')">Lãng Mạn</a>
+                    <a href="#" onclick="redirectToGenre('hai-huoc')">Hài Hước</a>
+                    <a href="#" onclick="redirectToGenre('gia-tuong')">Giả Tưởng</a>
+                    <a href="#" onclick="redirectToGenre('phieu-luu')">Phiêu Lưu</a>
+                    <a href="#" onclick="redirectToGenre('hau-cung')">Hậu Cung</a>
+                    <a href="#" onclick="redirectToGenre('manga')">Manga</a>
+                    <a href="#" onclick="redirectToGenre('manhua')">Manhua</a>
+                    <a href="#" onclick="redirectToGenre('manhwa')">Manhwa</a>
                 </div>
             </li>
             <li><a href="">Truyện Mới</a></li>
+            <li><a href="">Theo Dõi</a></li>
             <li><a href="">Liên Hệ</a></li>
             <li>
                 <div class="find">
@@ -514,21 +596,23 @@
 
             <div class="account-menu" id="accountMenu" style="display: none;">
                 <div class="profile-container">
-                    <div>
+                    <div class="left-column">
+                        <h3>Account Information</h3>
+                        <div class="account-info">
+                            <p><b>Username:</b> <span id="accountUsername"></span></p>
+                            <p><b>Email:</b> <span id="accountEmail"></span></p>
+                        </div>
+                    </div>
+                    <div class="right-column">
+                        <h3>Profile Picture</h3>
                         <img class="profile-pic" src="default-profile.png" alt="Profile Picture">
                         <input type="file" id="uploadProfilePic" style="display: none;" onchange="changeProfilePic(event)">
-                    </div>
-                    <div>
                         <button onclick="document.getElementById('uploadProfilePic').click()" class="change-picture">Change Picture</button>
                     </div>
-                    <div>
-                        <p><b>Username:</b> <span id="accountUsername"></span></p>
-                        <p><b>Email:</b> <span id="accountEmail"></span></p>
-                    </div>
-                    <div>
-                        <button onclick="editProfile()">Edit Profile</button>
-                        <button onclick="logout()">Logout</button>
-                    </div>
+                </div>
+                <div class="buttons">
+                    <button onclick="editProfile()">Edit Profile</button>
+                    <button onclick="logout()">Logout</button>
                 </div>
             </div>
         </div>
@@ -540,10 +624,19 @@
     
     <script src="https://kit.fontawesome.com/508b433abc.js" crossorigin="anonymous"></script>
     <script>
-        // Dropdown menu functionality
-        function myFunction() {
+        function redirectToGenre(genre) {
+            window.location.href = `genre.html?theloai=${genre}`;
+        }
+        function toggleDropdown() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
+
+        // Đóng dropdown khi click ngoài
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                document.getElementById("myDropdown").classList.remove("show");
+            }
+        };
     
         window.onclick = function (event) {
             if (!event.target.matches('.dropbtn')) {

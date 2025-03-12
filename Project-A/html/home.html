@@ -496,7 +496,7 @@
 
             .story-card {
                 flex: 1 1 20%;
-                max-width: 30%;
+                max-width: 24%;
             }
 
             .history-list {
@@ -527,19 +527,20 @@
         <ul>
             <li><a href="home.html">Trang Chủ</a></li>
             <li class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Thể Loại</button>
+                <button onclick="toggleDropdown()" class="dropbtn">Thể Loại</button>
                 <div id="myDropdown" class="dropcontent">
-                    <a href="action.html">Hành Động</a>
-                    <a href="romance.html">Lãng Mạn</a>
-                    <a href="comedy.html">Hài Hước</a>
-                    <a href="fantasy.html">Giả Tưởng</a>
-                    <a href="adventure.html">Phiêu lưu</a>
-                    <a href="harem.html">Hậu cung</a>
-                    <a href="manga.html">Manga</a>
-                    <a href="manhua">Manhua</a>
-                    <a href="manhwa">Manhwa</a>
+                    <a href="#" onclick="redirectToGenre('hanh-dong')">Hành Động</a>
+                    <a href="#" onclick="redirectToGenre('lang-man')">Lãng Mạn</a>
+                    <a href="#" onclick="redirectToGenre('hai-huoc')">Hài Hước</a>
+                    <a href="#" onclick="redirectToGenre('gia-tuong')">Giả Tưởng</a>
+                    <a href="#" onclick="redirectToGenre('phieu-luu')">Phiêu Lưu</a>
+                    <a href="#" onclick="redirectToGenre('hau-cung')">Hậu Cung</a>
+                    <a href="#" onclick="redirectToGenre('manga')">Manga</a>
+                    <a href="#" onclick="redirectToGenre('manhua')">Manhua</a>
+                    <a href="#" onclick="redirectToGenre('manhwa')">Manhwa</a>
                 </div>
             </li>
+            <li><a href="">Theo Dõi</a></li>
             <li><a href="">Truyện Mới</a></li>
             <li><a href="">Liên Hệ</a></li>
             <li>
@@ -854,6 +855,22 @@
     <script src="https://kit.fontawesome.com/508b433abc.js" crossorigin="anonymous"></script>
     <script>
 
+        function redirectToGenre(genre) {
+            window.location.href = `genre.html?theloai=${genre}`;
+        }
+
+        function toggleDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Đóng dropdown khi click ngoài
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                document.getElementById("myDropdown").classList.remove("show");
+            }
+        };
+
+
         document.addEventListener("DOMContentLoaded", () => {
             fetch("http://localhost:3000/api/stories")
                 .then(response => response.json())
@@ -864,17 +881,24 @@
                     stories.forEach(story => {
                         const storyCard = document.createElement("div");
                         storyCard.classList.add("story-card");
+
+                        storyCard.dataset.theloai = story.genre;     
+                        storyCard.dataset.status = story.status;      
+                        storyCard.dataset.views = story.views;        
+                        storyCard.dataset.chapters = story.chapters;  
+
                         storyCard.innerHTML = `
-                            <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                            <a href="#" onclick="updateHistory(this.closest('.story-card'))">
                                 <img src="${story.image}" alt="${story.title}">
                             </a>
                             <div class="story-info">
-                                <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">${story.title}</a></h3>
+                                <h3><a href="#" onclick="updateHistory(this.closest('.story-card'))">${story.title}</a></h3>
                                 <p><strong>Chapters:</strong> ${story.chapters}</p>
-                                <p><strong>Lượt Xem:</strong> ${story.views}</p>
+                                <p><strong>Lượt Xem:</strong> ${story.views.toLocaleString()}</p>
                                 <p><strong>Theo Dõi:</strong> ${story.followers}</p>
                             </div>
                         `;
+
                         hotlistContainer.appendChild(storyCard);
                     });
                 })

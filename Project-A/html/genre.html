@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bộ Lọc Thể Loại</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+
+        /*Header*/
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            padding: 10px;
+            background-image: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148809724.jpg");
+        }
+
+        header img {
+            width: 100%;
+            height: auto;
+        }
+
+        header a{text-decoration: none;color:azure;}
+
+        header .home-logo {
+            width: 70px;
+            height: 30px;
+            padding: 15px;
+        }
+        header .logo, 
+        header .right-logo {
+            width: 20px;
+            height: 20px;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        header .right-logo img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        header h1 {
+            margin: 10px 0;
+        }
+
+        nav {
+            background-color: rgb(46, 46, 46);
+            color: white;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 5px 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: whitesmoke;
+            font-size: 8px;
+        }
+
+        .dropdown {
+            position: relative;
+            text-align: center;
+        }
+
+        .dropbtn {
+            font-size: 8px;
+            border: none;
+            background-color: transparent;
+            color: whitesmoke;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .dropcontent {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            text-align: center;
+            min-width: 50px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 4;
+            width: 150px;
+        }
+
+        .dropcontent a {
+            color: black;
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .dropcontent a:hover {
+            background-color: gray;
+            color: #ddd;
+        }
+
+        .show {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start; 
+            gap: 12px; 
+        }
+
+        .show > * { 
+            flex: 0 1 calc(20% - 10px);
+            box-sizing: border-box; 
+        }
+
+        .find {
+            position: relative;
+            display: inline-block;
+            width: 100px;
+        }
+
+        .find input {
+            width: 100%;
+            padding: 10px 40px 10px 10px; 
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            height: 8px;
+            font-size: 8px;
+        }
+
+        .find .icon {
+            position: absolute;
+            top: 50%;
+            right: 10px; 
+            transform: translateY(-50%);
+            color: #888;
+            cursor: pointer;
+        }
+
+        .find .icon:hover {
+            color: #333; 
+        }
+
+        .logo {margin-left: 2%;}
+        .right-logo {
+            margin-right: 2%;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .right-logo:hover .account-dropdown {
+            display: block;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            background-color: #888;
+        }
+
+        /*Main*/
+        .main   {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+        }
+        .filter-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 400px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px solid black;
+            background-color: #ddd;
+        }
+        .filter-container select{border-radius: 15px;padding: 5px;}
+
+        .status-filter {
+            display: flex;
+            gap: 10px;
+        }
+
+        .status-btn {
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+        }
+
+        .status-btn.active {
+            background-color: #00bfff;
+            color: white;
+        }
+
+        .story-list {
+            background-color: #ececec;
+            padding: 10px;
+            border: 0px solid transparent;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 11px;
+            max-width: 900px;
+        }
+
+        .story-list img {max-width: 100px;height: auto;}
+        .story-list a{text-decoration: none;color: #333;}
+        .story-list a:hover {
+            color: blue;
+            cursor: pointer;
+        }
+
+        .story-list .list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .story-card {
+            flex-direction: column;
+            flex: 1 1 40%;
+            max-width: 180px;
+            border: 0px solid transparent;
+            border-radius: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        .story-card:hover {
+            box-shadow: 0 2px 18px #72efff;
+            cursor: pointer;
+            transform: scale(1.02) translateY(-2px);
+        }
+
+        .story-card img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 15px 15px 0 0 ;
+        }
+
+        .story-card a {
+            display: block;
+            text-align: center;
+        }
+
+        /*foot-content*/
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1b1b1be8;
+            border-top: 1px solid #ddd;
+            color: white;
+        }
+
+        /* Desktop View */
+        @media (min-width: 768px) {
+            main {
+                gap: 10px; 
+                padding: 10px;
+            }
+            .main {
+                align-items: center;
+            }
+
+            header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+            }
+
+            header img{
+                display: flex;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+            }
+            
+            header .home-logo {
+                width: 330px;
+                height: 120px;
+                padding: 15px;
+            }
+
+            header .logo,
+            header .right-logo {
+                width: 50px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            nav ul {
+                flex-direction: row;
+                justify-content: center;
+                list-style: none;
+                padding: 10px;
+                margin: 0;
+            }
+            nav ul li {
+                margin: 0 15px;
+            }
+            nav ul li a{
+                font-size: 16px;
+            }
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropcontent {
+                width: 700px;
+                margin-left: -170px;
+                min-width: 120px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            }
+
+            .dropbtn{font-size: 16px;}
+            .find{width: 200px;}
+            .find input{font-size: 16px;}
+
+            .filter-container {
+                display: flex;
+                max-width: 700px;
+                width: 100%;
+                align-items: center;
+            }
+
+            .filter-container select {
+                width: 300px;
+            }
+
+            .story-list {
+                width: 70%;
+            }
+            .story-card {
+                flex: 1 1 20%;
+                max-width: 24%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a class="logo" href="home.html"><img src="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1" width="50px" height="50px" alt=""></a>
+        <a href="home.html" class="home-logo"><img src="https://lh3.google.com/u/1/d/173ukoZSY5fbQ-7-CJ0WlYTegWBQtqc4V=w1876-h972-iv1" alt=""></a>
+        <div class="right-logo" onclick="redirectToAccount()">
+            <img class="profile-pic" src="default-profile.png" alt="Profile Picture">
+        </div>   
+    </header>
+    <nav>
+        <ul>
+            <li><a href="home.html">Trang Chủ</a></li>
+            <li class="dropdown">
+                <button onclick="toggleDropdown()" class="dropbtn">Thể Loại</button>
+                <div id="myDropdown" class="dropcontent">
+                    <a href="#" onclick="redirectToGenre('hanh-dong')">Hành Động</a>
+                    <a href="#" onclick="redirectToGenre('lang-man')">Lãng Mạn</a>
+                    <a href="#" onclick="redirectToGenre('hai-huoc')">Hài Hước</a>
+                    <a href="#" onclick="redirectToGenre('gia-tuong')">Giả Tưởng</a>
+                    <a href="#" onclick="redirectToGenre('phieu-luu')">Phiêu Lưu</a>
+                    <a href="#" onclick="redirectToGenre('hau-cung')">Hậu Cung</a>
+                    <a href="#" onclick="redirectToGenre('manga')">Manga</a>
+                    <a href="#" onclick="redirectToGenre('manhua')">Manhua</a>
+                    <a href="#" onclick="redirectToGenre('manhwa')">Manhwa</a>
+                </div>
+            </li>
+            <li><a href="">Theo Dõi</a></li>
+            <li><a href="">Truyện Mới</a></li>
+            <li><a href="">Liên Hệ</a></li>
+            <li>
+                <div class="find">
+                    <input type="text" placeholder="Tìm Truyện">
+                    <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <div class="main">
+            <div class="filter-container">
+                <select id="genre-filter" onchange="filterStories()">
+                    <option value="all">Tất cả thể loại</option>
+                    <option value="hanh-dong">Hành Động</option>
+                    <option value="lang-man">Lãng Mạn</option>
+                    <option value="hai-huoc">Hài Hước</option>
+                    <option value="gia-tuong">Giả Tưởng</option>
+                </select>
+
+                <div class="status-filter">
+                    <button class="status-btn active" data-status="all" onclick="setStatus(this)">Tất cả</button>
+                    <button class="status-btn" data-status="completed" onclick="setStatus(this)">Hoàn thành</button>
+                    <button class="status-btn" data-status="ongoing" onclick="setStatus(this)">Đang tiến hành</button>
+                </div>
+
+                <label for="sort-filter">Sắp xếp theo:</label>
+                <select id="sort-filter" onchange="sortStories()">
+                    <option value="update">Ngày cập nhật</option>
+                    <option value="views">Lượt xem</option>
+                    <option value="chapters">Số chương</option>
+                </select>
+            </div>
+            <div class="story-list">
+                <div class="list">
+                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="1500000" data-chapters="120">
+                        <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                            <img src="https://product.hstatic.net/200000343865/product/truyen-tranh-ki-nang-cho-nguoi-tre_nghe-thuat-duy-tri_4fbf4c727ae743398a24ea81d766c347.jpg" alt="Truyện Võ">
+                        </a>
+                        <div class="story-info">
+                            <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">nghe-thuat-duy-tri</a></h3>
+                            <p><strong>Chapters:</strong> 310</p>
+                            <p><strong>Lượt Xem:</strong> 3M</p>
+                            <p><strong>Theo Dõi:</strong> 36,737</p>
+                        </div>
+                    </div>
+
+                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="1500000" data-chapters="120">
+                        <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                            <img src="https://product.hstatic.net/200000343865/product/truyen-tranh-ki-nang-cho-nguoi-tre_nghe-thuat-duy-tri_4fbf4c727ae743398a24ea81d766c347.jpg" alt="Truyện Võ">
+                        </a>
+                        <div class="story-info">
+                            <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">nghe-thuat-duy-tri</a></h3>
+                            <p><strong>Chapters:</strong> 310</p>
+                            <p><strong>Lượt Xem:</strong> 3M</p>
+                            <p><strong>Theo Dõi:</strong> 36,737</p>
+                        </div>
+                    </div>
+
+                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="1500000" data-chapters="120">
+                        <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                            <img src="https://product.hstatic.net/200000343865/product/truyen-tranh-ki-nang-cho-nguoi-tre_nghe-thuat-duy-tri_4fbf4c727ae743398a24ea81d766c347.jpg" alt="Truyện Võ">
+                        </a>
+                        <div class="story-info">
+                            <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">nghe-thuat-duy-tri</a></h3>
+                            <p><strong>Chapters:</strong> 310</p>
+                            <p><strong>Lượt Xem:</strong> 3M</p>
+                            <p><strong>Theo Dõi:</strong> 36,737</p>
+                        </div>
+                    </div>
+
+                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="1500000" data-chapters="120">
+                        <img src="https://via.placeholder.com/150" alt="Truyện 2">
+                        <div class="story-info">
+                            <h3>Truyện 2</h3>
+                            <p><strong>Chapters:</strong> 120</p>
+                            <p><strong>Lượt Xem:</strong> 1.5M</p>
+                            <p><strong>Trạng thái:</strong> Đang tiến hành</p>
+                        </div>
+                    </div>
+
+                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="1500000" data-chapters="120">
+                        <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
+                            <img src="https://product.hstatic.net/200000343865/product/truyen-tranh-ki-nang-cho-nguoi-tre_nghe-thuat-duy-tri_4fbf4c727ae743398a24ea81d766c347.jpg" alt="Truyện Võ">
+                        </a>
+                        <div class="story-info">
+                            <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">nghe-thuat-duy-tri</a></h3>
+                            <p><strong>Chapters:</strong> 310</p>
+                            <p><strong>Lượt Xem:</strong> 3M</p>
+                            <p><strong>Theo Dõi:</strong> 36,737</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Truyện Tranh Online. All Rights Reserved.</p>
+    </footer>
+    <script>
+        function redirectToGenre(genre) {
+            window.location.href = `genre.html?theloai=${genre}`;
+        }
+        function toggleDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Đóng dropdown khi click ngoài
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                document.getElementById("myDropdown").classList.remove("show");
+            }
+        };
+        // Redirect to account
+        function redirectToAccount() {
+            const isLoggedIn = localStorage.getItem("loggedInUser"); 
+            window.location.href = isLoggedIn ? "account.html" : "account.html?mode=signin";
+        }
+
+        //getURL
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedGenre = urlParams.get("theloai");
+
+            if (selectedGenre) {
+                document.getElementById("genre-filter").value = selectedGenre;
+                filterStories();
+            }
+        });
+
+        //filterStories
+        function filterStories() {
+            const genre = document.getElementById("genre-filter").value;
+            const status = document.querySelector(".status-btn.active").dataset.status;
+            const stories = document.querySelectorAll(".story-card");
+
+            stories.forEach(story => {
+                const storyGenres = story.dataset.theloai.split(" ");
+                const storyStatus = story.dataset.status;
+
+                const matchesGenre = genre === "all" || storyGenres.includes(genre);
+                const matchesStatus = status === "all" || storyStatus === status;
+
+                story.style.display = matchesGenre && matchesStatus ? "flex" : "none";
+            });
+        }
+
+        //setStatus
+        function setStatus(button) {
+            document.querySelectorAll(".status-btn").forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+            filterStories();
+        }
+
+        //sortStories
+        function sortStories() {
+            const sortBy = document.getElementById("sort-filter").value;
+            const storyList = document.querySelector(".story-list");
+            const stories = Array.from(document.querySelectorAll(".story-card"));
+
+            stories.sort((a, b) => {
+                const aValue = parseInt(a.dataset[sortBy]);
+                const bValue = parseInt(b.dataset[sortBy]);
+                return bValue - aValue; 
+            });
+
+            storyList.innerHTML = "";
+            stories.forEach(story => storyList.appendChild(story));
+        }
+
+        // Load profile pictures
+        function loadProfilePictures() {
+            let user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user && user.profilePic) {
+                document.querySelectorAll(".profile-pic").forEach(img => {
+                    img.src = user.profilePic;
+                });
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", loadProfilePictures);
+    </script>
+</body>
+</html>
