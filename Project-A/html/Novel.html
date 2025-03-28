@@ -188,104 +188,77 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 10px;
+            padding: 10px;
         }
         .container {
             display: flex;
             flex-direction: column;
+            width: 100%;
             justify-content: center;
             align-items: center;
-            width: 100%;
             gap: 10px;
             padding: 10px;
-            border: none;
-            background-color: #ececec;
+            background-color: #ffffff;
         }
-        .chapter-control {
-            position: fixed;
+        .container .NovelName {font-size: 24px;}
+        .info {
             display: flex;
-            flex-direction: row;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            width: 720px;
-            height: 50px;
-            gap: 15px;
+            gap: 50px;
             padding: 10px;
-            border: none;
-            background-color: #ececec;
-            border-radius: 15px;
-            top: 165px;
         }
-        .fixed-bottom {
+        
+        .info img {width: 250px;height: auto;}
+        .info-detail {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+        }
+        .info-detail h1 {
             display: none;
         }
-
-        .fixed-top {
-            top: 0;
-            bottom: auto;
+        .info-detail .follow-info,
+        .info-detail .buttons {
+            margin-top: 10px;
+            margin-bottom: 10px; 
         }
-        .chapter-control select {
-            width: 170px;
-            height: 32px;
+        .info-detail button {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: #00d9ff;
             border-radius: 5px;
+            font-size: 12px;
+        }
+        .info-detail button:hover {
+            background-color: #00b3e6;
+        }
+        .NumOfchapter {
+            width: 100%;
             border: 1px solid #ccc;
-            padding: 6px;
-            font-size: 11px;
+            border-radius: 15px;
+        }
+        .NumOfchapter ul {
+            max-height: 700px;
+            padding-bottom: 20px;
+            margin: 0;
+            border: 1px solid #ccc;
+            background-color: #ebebeb;
+            list-style:decimal;
+            scroll-behavior: smooth;
+        }
+        .NumOfchapter li {
+            padding-top: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .NumOfchapter li a {
+            text-decoration: none;
             color: #333;
-        }
-        .chapter-control button {
-            border: 0 solid transparent;
-            border-radius: 5px;
-            padding: 5px 10px;
-            font-size: 14px;
-            cursor: pointer;
-            background-color: rgb(127, 225, 255);
-        }
-        .chapter-control .fa-solid {
-            cursor: pointer;
-        }
-        .chapter-control .fa-solid.fa-square-caret-left, .chapter-control .fa-solid.fa-square-caret-right {
-            font-size: 28px;
-        }
-        .chapter-control .fa-solid.fa-square-caret-left {
-            margin-right: -10px;
-        }
-        .chapter-control .fa-solid.fa-square-caret-right {
-            margin-left: -10px;
-        }
-        /*chapter*/
-        .chapter {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            border: none;
-        }
-        .chapter h1 {
-            margin-top: 50px;
-            margin-bottom: 0;
-            border: 1px solid transparent;
-            background-color: rgb(255, 255, 255);
-            padding: 20px;
-            padding-left: 200px;
-            padding-right: 200px;
-        }
-        .chapter .chapter-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            border: none;
-        }
-        .chapter .chapter-content img {
-            width: 100%;
-            height: auto;
-            margin: 0;
+            font-size: 20px;
         }
         /*footer*/
         footer {
@@ -299,8 +272,8 @@
         .tothetop button {
             display: none;
             position: fixed;
-            bottom: 30px;
-            right: 60px;
+            bottom: 20px;
+            right: 30px;
             width: 45px;
             border: 1px solid #000000;
             outline: none;
@@ -376,32 +349,18 @@
             .dropbtn{font-size: 16px;}
             .find{width: 200px;}
             .find input{font-size: 16px;}
-            /*container*/
+
             .container {
-                width: 700px;
+                width: 60%;
             }
-            .chapter-control {
-                top: 270px;
+            .container .NovelName {
+                display: none;
             }
-            .fixed-top {
-                top: 0;
-                bottom: auto;
+            .info {
+                flex-direction: row;
             }
-            .fixed-bottom {
-                top: auto;
-                bottom: 0;
-                display: flex;
-            }
-            .chapter-control select {
-                font-size: 15px;
-            }
-            /*chapter*/
-            .chapter {
-                width: 700px;
-            }
-            /*footer*/
-            footer {
-                font-size: 18px;
+            .info-detail h1{
+                display: block;
             }
         }
     </style>
@@ -460,30 +419,15 @@
     </nav>
     <main>
         <div class="container">
-            <div class="top">
-                <div class="NovelName">
-                    <a href="${story.title}" ></a>
-                </div>
-                <div class="currentChapter">
-                    <a href="${story.chapter}"></a>
-                </div>
+            <h1 class="NovelName"></h1>
+            <div class="info">
+                <img src="" alt="">
+                <div class="info-detail"></div>
             </div>
-            <div class="chapter-control">
-                <i class="fa-solid fa-house-chimney" onclick="redirectToHome()"></i>
-                <i class="fa-solid fa-list" id="redirectToStoryPage"></i>
-                <i class="fa-solid fa-square-caret-left" id="prevChapter"></i>
-                
-                <select name="NumOfchapter" id="NumOfchapter"></select>
-                
-                <i class="fa-solid fa-square-caret-right" id="nextChapter"></i>
-                
-                <button class="follow">
-                </button>
-            </div>            
-        </div>
-        <div class="chapter">
-            <h1></h1>
-            <div class="chapter-content"></div>
+            <div class="NumOfchapter">
+                <h2>Chapter List</h2>
+                <ul></ul>
+            </div>
         </div>
     </main>
     <footer>
@@ -495,7 +439,6 @@
     <script src="https://kit.fontawesome.com/508b433abc.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script>       
         $(window).scroll(function() {
             if ($(document).scrollTop() > 100) {
@@ -507,178 +450,6 @@
         function scrollToTop() {
             $("html, body").animate({scrollTop: 0}, 700);
         }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const chapterControl = document.querySelector(".chapter-control");
-            let lastScrollY = window.scrollY;
-
-            window.addEventListener("scroll", () => {
-                let currentScrollY = window.scrollY;
-
-                if (currentScrollY < 40) {
-                    chapterControl.classList.remove("fixed-top", "fixed-bottom");
-                    chapterControl.classList.add("normal-position");
-                } else if (currentScrollY > lastScrollY) {
-                    chapterControl.classList.remove("fixed-top");
-                    chapterControl.classList.add("fixed-bottom");
-                } else {
-                    chapterControl.classList.remove("fixed-bottom");
-                    chapterControl.classList.add("fixed-top");
-                }
-
-                lastScrollY = currentScrollY;
-            });
-        });
-
-        //Chapter
-        document.addEventListener("DOMContentLoaded", async () => {
-            try {
-                const urlParams = new URLSearchParams(window.location.search);
-                const storyId = urlParams.get("story");
-                let chapterNumber = urlParams.get("chapter") || "0";
-
-                if (!storyId) throw new Error("❌ Không có storyId trong URL");
-
-                chapterNumber = chapterNumber.replace(/^chapter\s*/, ""); // Normalize chapter format
-
-                // ✅ Fetch story data
-                const response = await fetch(`/api/stories?id=${storyId}`);
-                if (!response.ok) throw new Error("❌ Không thể lấy dữ liệu truyện");
-
-                const stories = await response.json();
-                const story = stories.find(s => s._id === storyId);
-                if (!story) throw new Error("❌ Không tìm thấy truyện với ID này.");
-                console.log(story);
-                if (!story.chapters || typeof story.chapters !== "object") {
-                    throw new Error("❌ Dữ liệu chương bị lỗi hoặc không tồn tại.");
-                }
-
-                //To Story Page
-                const redirectButton = document.getElementById("redirectToStoryPage");
-                if (redirectButton) {
-                    redirectButton.addEventListener("click", () => redirectToStoryPage(story));
-                };
-
-                // ✅ Sort chapters correctly (handles "chapter 1", "chapter 10")
-                const chapterKeys = Object.keys(story.chapters).sort((a, b) => {
-                    const numA = parseInt(a.replace("chapter ", ""), 10);
-                    const numB = parseInt(b.replace("chapter ", ""), 10);
-                    return numA - numB;
-                });
-
-                const currentIndex = chapterKeys.indexOf(`chapter ${chapterNumber}`);
-
-                document.querySelector("h1").textContent = `Chương ${chapterNumber}`;
-
-                // ✅ Fetch user data for follow status
-                const storedData = JSON.parse(sessionStorage.getItem("loggedInUser"));
-                let isFollowed = false;
-                if (storedData && storedData.user) {
-                    const userId = storedData.user.userId;
-                    const userResponse = await fetch(`/api/user?id=${userId}`);
-                    if (userResponse.ok) {
-                        const user = await userResponse.json();
-                        isFollowed = user.followedStories.includes(story._id);
-                    }
-                }
-
-                // ✅ Update follow button
-                const followButton = document.querySelector(".follow");
-                followButton.innerHTML = isFollowed
-                    ? `<button onclick="followStory('${story._id}')"><i class="fa-solid fa-xmark"></i> Unfollow</button>`
-                    : `<button onclick="followStory('${story._id}')"><i class="fa-regular fa-heart"></i> Follow</button>`;
-
-                // ✅ Populate chapter dropdown
-                const chapterSelect = document.getElementById("NumOfchapter");
-                chapterSelect.innerHTML = chapterKeys
-                    .map(chapter => `<option value="${chapter}">${chapter}</option>`)
-                    .join("");
-
-                chapterSelect.value = `chapter ${chapterNumber}`;
-
-                // ✅ Handle chapter selection change
-                chapterSelect.addEventListener("change", function () {
-                    window.location.href = `readWeb.html?story=${encodeURIComponent(storyId)}&chapter=${encodeURIComponent(this.value)}`;
-                });
-
-                // ✅ Previous & Next Chapter Buttons
-                document.getElementById("prevChapter").addEventListener("click", function () {
-                    if (currentIndex > 0) {
-                        window.location.href = `readWeb.html?story=${encodeURIComponent(storyId)}&chapter=${encodeURIComponent(chapterKeys[currentIndex - 1])}`;
-                    }
-                });
-
-                document.getElementById("nextChapter").addEventListener("click", function () {
-                    if (currentIndex < chapterKeys.length - 1) {
-                        window.location.href = `readWeb.html?story=${encodeURIComponent(storyId)}&chapter=${encodeURIComponent(chapterKeys[currentIndex + 1])}`;
-                    }
-                });
-
-                // ✅ Load Chapter Images
-                const images = story.chapters[`chapter ${chapterNumber}`] || [];
-                const imageContainer = document.querySelector(".chapter-content");
-
-                if (!Array.isArray(images) || images.length === 0) {
-                    imageContainer.innerHTML = "<p>❌ Không có ảnh cho chương này.</p>";
-                    return;
-                }
-
-                imageContainer.innerHTML = images
-                    .map(imgUrl => `<img src="${imgUrl}" alt="Chương ${chapterNumber}" style="width:100%; max-width:800px; display:block;">`)
-                    .join("");
-
-            } catch (error) {
-                Swal.fire({ icon: "error", title: "Lỗi khi tải truyện", text: error.message, confirmButtonText: "OK" });
-            }
-        });
-
-        // ✅ Follow/Unfollow Story
-        async function followStory(storyId) {
-            try {
-                const storedData = JSON.parse(sessionStorage.getItem("loggedInUser"));
-                if (!storedData || !storedData.user || !storedData.user.userId) {
-                    Swal.fire({ icon: "error", text: "User chưa đăng nhập", confirmButtonText: "OK" });
-                    return;
-                }
-
-                const userId = storedData.user.userId;
-                const userResponse = await fetch(`/api/user?id=${userId}`);
-                if (!userResponse.ok) throw new Error("Không thể lấy thông tin người dùng");
-
-                const user = await userResponse.json();
-
-                let isFollowing = user.followedStories.includes(storyId);
-                let updatedFollowedStories = isFollowing
-                    ? user.followedStories.filter(id => id !== storyId)
-                    : [...user.followedStories, storyId];
-
-                // ✅ Update Follow List in Server
-                const response = await fetch(`/api/user/${user._id}/followedStories`, {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ followedStories: updatedFollowedStories })
-                });
-
-                if (!response.ok) throw new Error("Cập nhật trên server thất bại.");
-
-                // ✅ Update Follow Button UI
-                const followButton = document.querySelector(".follow");
-                const followerSpan = document.querySelector(".follow-info span");
-                let followers = parseInt(followerSpan.textContent) || 0;
-
-                if (isFollowing) {
-                    followButton.innerHTML = '<i class="fa-regular fa-heart"></i> Follow';
-                    followerSpan.textContent = `${followers - 1} followers`;
-                } else {
-                    followButton.innerHTML = '<i class="fa-solid fa-xmark"></i> Unfollow';
-                    followerSpan.textContent = `${followers + 1} followers`;
-                }
-
-                console.log("📌 Cập nhật danh sách theo dõi thành công:", updatedFollowedStories);
-            } catch (error) {
-                
-            }
-        };
 
         //search story
         document.addEventListener("DOMContentLoaded", () => {
@@ -698,21 +469,205 @@
                     handleSearch();
                 }
             });
-        }); 
+        });
 
-        function redirectToHome() {
-            window.location.href = "home.html";
+        document.addEventListener("DOMContentLoaded", async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const storyTitle = urlParams.get("story");
+
+            if (!storyTitle) {
+                alert("Không tìm thấy tên truyện trong URL.");
+                return;
+            }
+
+            try {
+                // Lấy danh sách truyện từ API
+                const response = await fetch("/api/stories");
+                if (!response.ok) throw new Error("Không thể lấy dữ liệu từ server");
+
+                const stories = await response.json();
+                console.log("📌 Danh sách truyện từ API:", stories);
+
+                // Tìm truyện theo title
+                const currentStory = stories.find(s => s.title === storyTitle);
+                if (!currentStory) {
+                    Swal.fire({ icon: "error", text: "Không tìm thấy truyện", confirmButtonText: "OK" });
+                    return;
+                }
+
+                // Lấy thông tin người dùng từ API
+                const storedData = JSON.parse(sessionStorage.getItem("loggedInUser"));
+                if (!storedData || !storedData.user || !storedData.user.userId) {
+                    Swal.fire({ icon: "error", text: "User chưa đăng nhập", confirmButtonText: "OK" });
+                    return;
+                }
+
+                const userId = storedData.user.userId;
+                const userResponse = await fetch(`/api/user?id=${userId}`);
+                if (!userResponse.ok) throw new Error("Không thể lấy thông tin người dùng");
+
+                const user = await userResponse.json();
+                console.log("📌 Thông tin người dùng:", user);
+
+                // Kiểm tra xem truyện đã được theo dõi chưa
+                const isFollowed = user.followedStories.includes(currentStory._id);
+
+                // Hiển thị thông tin truyện
+                document.querySelector(".NovelName").textContent = currentStory.title;
+                document.querySelector(".info img").src = currentStory.image;
+                document.querySelector(".info img").alt = currentStory.title;
+
+                updateHistory(currentStory._id);
+
+                // Cập nhật nút theo dõi
+                const followButtonHTML = isFollowed
+                    ? `<button class="follow" onclick="followStory('${currentStory._id}')"><i class="fa-solid fa-xmark"></i> Unfollow</button>`
+                    : `<button class="follow" onclick="followStory('${currentStory._id}')"><i class="fa-regular fa-heart"></i> Follow</button>`;
+
+                document.querySelector(".info-detail").innerHTML = `
+                    <h1>${currentStory.title}</h1>
+                    <p>Author: ${currentStory.author}</p>
+                    <p>Status: ${currentStory.status}</p>
+                    <p>Genre: ${currentStory.genre}</p>
+                    <div class="follow-info">
+                        ${followButtonHTML}
+                        <span>${currentStory.followers || 0} followers</span>
+                    </div>
+                    <div class="buttons">
+                        <button id="oldest-chapter">Oldest Chapter</button>
+                        <button id="newest-chapter">Newest Chapter</button>
+                    </div>
+                `;
+
+                // Hiển thị danh sách chương
+                const chapterList = Object.keys(currentStory.chapters).sort((a, b) => a - b); // Ensure chapters are sorted
+                const chapterLinks = chapterList
+                    .map(chapter => 
+                        `<li><a href="readWeb.html?story=${encodeURIComponent(currentStory._id)}&chapter=${encodeURIComponent(chapter)}">${chapter}</a></li>`
+                    ).join('');
+
+                document.querySelector(".NumOfchapter ul").innerHTML = chapterLinks;
+
+                // Set up Oldest and Newest Chapter buttons
+                if (chapterList.length > 0) {
+                    document.getElementById("oldest-chapter").addEventListener("click", () => {
+                        window.location.href = `readWeb.html?story=${encodeURIComponent(currentStory._id)}&chapter=${encodeURIComponent(chapterList[0])}`;
+                    });
+
+                    document.getElementById("newest-chapter").addEventListener("click", () => {
+                        window.location.href = `readWeb.html?story=${encodeURIComponent(currentStory._id)}&chapter=${encodeURIComponent(chapterList[chapterList.length - 1])}`;
+                    });
+                }
+
+            } catch (error) {
+                console.error("Lỗi:", error);
+                Swal.fire({ icon: "error", text: error.message, confirmButtonText: "OK" });
+            }
+        });
+
+        async function followStory(storyId) {
+            try {
+                // Lấy thông tin người dùng từ API
+                const storedData = JSON.parse(sessionStorage.getItem("loggedInUser"));
+                if (!storedData || !storedData.user || !storedData.user.userId) {
+                    Swal.fire({ icon: "error", text: "User chưa đăng nhập", confirmButtonText: "OK" });
+                    return;
+                }
+
+                const userId = storedData.user.userId;
+                const userResponse = await fetch(`/api/user?id=${userId}`);
+                if (!userResponse.ok) throw new Error("Không thể lấy thông tin người dùng");
+
+                const user = await userResponse.json();
+                if (!userResponse.ok) throw new Error("Không thể lấy thông tin người dùng");
+
+                let isFollowing = user.followedStories.includes(storyId);
+                let updatedFollowedStories;
+
+                if (isFollowing) {
+                    updatedFollowedStories = user.followedStories.filter(id => id !== storyId);
+                } else {
+                    updatedFollowedStories = [...user.followedStories, storyId];
+                }
+
+                // Gửi yêu cầu cập nhật danh sách truyện theo dõi lên server
+                const response = await fetch(`/api/user/${user._id}/followedStories`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ followedStories: updatedFollowedStories })
+                });
+
+                if (!response.ok) throw new Error("Cập nhật trên server thất bại.");
+
+                // Cập nhật giao diện
+                const followButton = document.querySelector(".follow");
+                const followerSpan = document.querySelector(".follow-info span");
+                let followers = parseInt(followerSpan.textContent) || 0;
+
+                if (isFollowing) {
+                    followButton.innerHTML = '<i class="fa-regular fa-heart"></i> Follow';
+                    followerSpan.textContent = `${followers - 1} followers`;
+                } else {
+                    followButton.innerHTML = '<i class="fa-solid fa-xmark"></i> Unfollow';
+                    followerSpan.textContent = `${followers + 1} followers`;
+                }
+
+                console.log("📌 Cập nhật danh sách theo dõi thành công:", updatedFollowedStories);
+            } catch (error) {
+                console.error("Lỗi:", error);
+                Swal.fire({ icon: "error", text: error.message, confirmButtonText: "OK" });
+            }
         }
+
+        async function updateHistory(storyId) {
+            console.log("📌 updateHistory() called with:", storyId);
+
+            try {
+                // Fetch the currently logged-in user
+                const storedData = JSON.parse(sessionStorage.getItem("loggedInUser"));
+                if (!storedData || !storedData.user || !storedData.user.userId) {
+                    Swal.fire({ icon: "error", text: "User chưa đăng nhập", confirmButtonText: "OK" });
+                    return;
+                }
+
+                const userId = storedData.user.userId;
+                const userResponse = await fetch(`/api/user?id=${userId}`);
+                if (!userResponse.ok) throw new Error("Không thể lấy thông tin người dùng");
+
+                const user = await userResponse.json();
+                console.log("User ID being sent:", userId);
+
+                // Get user's existing history (assuming it's stored in user.history)
+                let history = user.history || [];
+
+                // Remove duplicate entries
+                history = history.filter(id => id !== storyId);
+
+                // Add new story ID to the front
+                history.unshift(storyId);
+
+                // Limit history to 10 items
+                if (history.length > 10) {
+                    history = history.slice(0, 10);
+                }
+
+                // Update the history in the database
+                const updateResponse = await fetch(`/api/user/${userId}/history`, { 
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ history })
+                });
+
+                if (!updateResponse.ok) throw new Error("Không thể cập nhật lịch sử đọc");
+
+                console.log("✅ Lịch sử đọc đã được cập nhật.");
+            } catch (error) {
+                console.error("❌ Lỗi khi cập nhật lịch sử đọc:", error);
+            }
+        }
+
         function redirectToGenre(genre) {
             window.location.href = `genre.html?theloai=${encodeURIComponent(genre)}`;
-        }
-
-        function toggleDropdown() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        function redirectToStoryPage(story) {
-            window.location.href = `Novel.html?story=${encodeURIComponent(story.title)}`;
         }
 
         async function redirectToAccount() {
@@ -735,7 +690,11 @@
                 window.location.href = "account.html?mode=signin";
             }
         }
-        
+
+        function toggleDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
         // Đóng dropdown khi click ngoài
         window.onclick = function(event) {
             if (!event.target.matches('.dropbtn')) {

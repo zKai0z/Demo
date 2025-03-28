@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>No Name Novel</title>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1">
 
     <style>
 
@@ -156,7 +156,7 @@
             top: 50%;
             right: 10px; 
             transform: translateY(-50%);
-            color: #888;
+            color: #464646;
             cursor: pointer;
         }
 
@@ -250,8 +250,7 @@
 
         .story-card {
             flex-direction: column;
-            flex: 1 1 40%;
-            max-width: 180px;
+            flex: 0 1 110px;
             border: 0px solid transparent;
             border-radius: 15px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -283,7 +282,20 @@
             border-top: 1px solid #ddd;
             color: white;
         }
-
+        .tothetop button {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            width: 45px;
+            border: 1px solid #000000;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.096);
+            color: rgb(0, 255, 242);
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 8px;
+        }
         /* Desktop View */
         @media (min-width: 768px) {
             main {
@@ -372,8 +384,8 @@
                 width: 70%;
             }
             .story-card {
-                flex: 1 1 20%;
-                max-width: 24%;
+                flex: 0 1 210px;
+                height: 450px;
             }
         }
 
@@ -382,8 +394,8 @@
 <body>
 
     <header>
-        <a class="logo" href="home.html"><img src="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1" width="50px" height="50px" alt=""></a>
-        <a href="home.html" class="home-logo"><img src="https://lh3.google.com/u/1/d/173ukoZSY5fbQ-7-CJ0WlYTegWBQtqc4V=w1876-h972-iv1" alt=""></a>
+        <a class="logo" href="home.html"><img src="https://i.postimg.cc/B66gbNSH/HUB-1.png" width="50px" height="50px" alt=""></a>
+        <a href="home.html" class="home-logo"><img src="https://i.postimg.cc/bvLgq4hq/logo-web-novel-Canvases-Landscape-i1.png" alt=""></a>
         <div class="right-logo" onclick="redirectToAccount()">
             <img class="profile-pic" src="default-profile.png" alt="Profile Picture">
         </div>   
@@ -394,25 +406,41 @@
             <li class="dropdown">
                 <button onclick="toggleDropdown()" class="dropbtn">Thể Loại</button>
                 <div id="myDropdown" class="dropcontent">
-                    <a href="#" onclick="redirectToGenre('hanh-dong')">Hành Động</a>
-                    <a href="#" onclick="redirectToGenre('lang-man')">Lãng Mạn</a>
-                    <a href="#" onclick="redirectToGenre('hai-huoc')">Hài Hước</a>
-                    <a href="#" onclick="redirectToGenre('gia-tuong')">Giả Tưởng</a>
-                    <a href="#" onclick="redirectToGenre('phieu-luu')">Phiêu Lưu</a>
-                    <a href="#" onclick="redirectToGenre('hau-cung')">Hậu Cung</a>
-                    <a href="#" onclick="redirectToGenre('manga')">Manga</a>
-                    <a href="#" onclick="redirectToGenre('manhua')">Manhua</a>
-                    <a href="#" onclick="redirectToGenre('manhwa')">Manhwa</a>
+                    <a href="#" onclick="redirectToGenre('all')">Tất cả thể loại</a>
+                    <a href="#" onclick="redirectToGenre('Hành Động')">Hành Động</a>
+                    <a href="#" onclick="redirectToGenre('Lãng Mạn')">Lãng Mạn</a>
+                    <a href="#" onclick="redirectToGenre('Hài Hước')">Hài Hước</a>
+                    <a href="#" onclick="redirectToGenre('Giả Tưởng')">Giả Tưởng</a>
+                    <a href="#" onclick="redirectToGenre('Võ Thuật')">Võ Thuật</a>
+                    <a href="#" onclick="redirectToGenre('Phiêu Lưu')">Phiêu Lưu</a>
+                    <a href="#" onclick="redirectToGenre('Hậu Cung')">Hậu Cung</a>
+                    <a href="#" onclick="redirectToGenre('Manga')">Manga</a>
+                    <a href="#" onclick="redirectToGenre('Manhua')">Manhua</a>
+                    <a href="#" onclick="redirectToGenre('Manhwa')">Manhwa</a>
+                    <a href="#" onclick="redirectToGenre('Kinh dị')">Kinh dị</a>
+                    <a href="#" onclick="redirectToGenre('Huyền Huyễn')">Huyền Huyễn</a>
+                    <a href="#" onclick="redirectToGenre('Trinh Thám')">Trinh Thám</a>
+                    <a href="#" onclick="redirectToGenre('Lịch Sử')">Lịch Sử</a>
+                    <a href="#" onclick="redirectToGenre('Khoa học')">Khoa học</a>
+                    <a href="#" onclick="redirectToGenre('Viễn Tưởng')">Viễn Tưởng</a>
+                    <a href="#" onclick="redirectToGenre('Siêu nhiên')">Siêu nhiên</a>
+                    <a href="#" onclick="redirectToGenre('Tu Tiên')">Tu Tiên</a>
+                    <a href="#" onclick="redirectToGenre('Hentai')">Hentai</a>
+                    <a href="#" onclick="redirectToGenre('Doujinshi')">Doujinshi</a>
+                    <a href="#" onclick="redirectToGenre('Webtoon')">Webtoon</a>
+                    <a href="#" onclick="redirectToGenre('Đời Thường')">Đời Thường</a>
+                    <a href="#" onclick="redirectToGenre('Fantasy')">Fantasy</a>
                 </div>
             </li>
-            <li><a href="">Theo Dõi</a></li>
-            <li><a href="">Truyện Mới</a></li>
+            <li><a href="Follow.html">Theo Dõi</a></li>
             <li><a href="">Liên Hệ</a></li>
             <li>
                 <div class="find">
-                    <input type="text" placeholder="Tìm Truyện">
-                    <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-                </div>
+                    <input type="text" id="search-input" placeholder="Tìm Truyện">
+                    <span class="icon" id="search-button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                </div>                
             </li>
         </ul>
     </nav>
@@ -421,10 +449,29 @@
             <div class="filter-container">
                 <select id="genre-filter" onchange="filterStories()">
                     <option value="all">Tất cả thể loại</option>
-                    <option value="hanh-dong">Hành Động</option>
-                    <option value="lang-man">Lãng Mạn</option>
-                    <option value="hai-huoc">Hài Hước</option>
-                    <option value="gia-tuong">Giả Tưởng</option>
+                    <option value="Hành Động">Hành Động</option>
+                    <option value="Lãng Mạn">Lãng Mạn</option>
+                    <option value="Hài Hước">Hài Hước</option>
+                    <option value="Giả Tưởng">Giả Tưởng</option>
+                    <option value="Võ Thuật">Võ Thuật</option>
+                    <option value="Phiêu Lưu">Phiêu Lưu</option>
+                    <option value="Hậu Cung">Hậu Cung</option>
+                    <option value="Manga">Manga</option>
+                    <option value="Manhua">Manhua</option>
+                    <option value="Manhwa">Manhwa</option>
+                    <option value="Kinh dị">Kinh dị</option>
+                    <option value="Huyền Huyễn">Huyền Huyễn</option>
+                    <option value="Trinh Thám">Trinh Thám</option>
+                    <option value="Lịch Sử">Lịch Sử</option>
+                    <option value="Khoa học">Khoa học</option>
+                    <option value="Viễn Tưởng">Viễn Tưởng</option>
+                    <option value="Siêu nhiên">Siêu nhiên</option>
+                    <option value="Tu Tiên">Tu Tiên</option>
+                    <option value="Hentai">Hentai</option>
+                    <option value="Doujinshi">Doujinshi</option>
+                    <option value="Webtoon">Webtoon</option>
+                    <option value="Đời Thường">Đời Thường</option>
+                    <option value="Fantasy">Fantasy</option>
                 </select>
 
                 <div class="status-filter">
@@ -442,74 +489,133 @@
             </div>
             <div class="story-list">
                 <div class="list">
-                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="1500000" data-chapters="120">
-                        <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                            <img src="https://product.hstatic.net/200000343865/product/truyen-tranh-ki-nang-cho-nguoi-tre_nghe-thuat-duy-tri_4fbf4c727ae743398a24ea81d766c347.jpg" alt="Truyện Võ">
-                        </a>
-                        <div class="story-info">
-                            <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">nghe-thuat-duy-tri</a></h3>
-                            <p><strong>Chapters:</strong> 310</p>
-                            <p><strong>Lượt Xem:</strong> 3M</p>
-                            <p><strong>Theo Dõi:</strong> 36,737</p>
-                        </div>
-                    </div>
-
-                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="150000" data-chapters="12">
-                        <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                            <img src="https://product.hstatic.net/200000343865/product/truyen-tranh-ki-nang-cho-nguoi-tre_nghe-thuat-duy-tri_4fbf4c727ae743398a24ea81d766c347.jpg" alt="Truyện Võ">
-                        </a>
-                        <div class="story-info">
-                            <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">nghe-thuat-duy-tri</a></h3>
-                            <p><strong>Chapters:</strong> 310</p>
-                            <p><strong>Lượt Xem:</strong> 3M</p>
-                            <p><strong>Theo Dõi:</strong> 36,737</p>
-                        </div>
-                    </div>
-
-                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="100000" data-chapters="20">
-                        <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                            <img src="https://product.hstatic.net/200000343865/product/truyen-tranh-ki-nang-cho-nguoi-tre_nghe-thuat-duy-tri_4fbf4c727ae743398a24ea81d766c347.jpg" alt="Truyện Võ">
-                        </a>
-                        <div class="story-info">
-                            <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">nghe-thuat-duy-tri</a></h3>
-                            <p><strong>Chapters:</strong> 310</p>
-                            <p><strong>Lượt Xem:</strong> 3M</p>
-                            <p><strong>Theo Dõi:</strong> 36,737</p>
-                        </div>
-                    </div>
-
-                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="15000" data-chapters="120">
-                        <img src="https://via.placeholder.com/150" alt="Truyện 2">
-                        <div class="story-info">
-                            <h3>Truyện 2</h3>
-                            <p><strong>Chapters:</strong> 120</p>
-                            <p><strong>Lượt Xem:</strong> 1.5M</p>
-                            <p><strong>Trạng thái:</strong> Đang tiến hành</p>
-                        </div>
-                    </div>
-
-                    <div class="story-card" data-theloai="hai-huoc gia-tuong" data-status="ongoing" data-views="100" data-chapters="10">
-                        <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                            <img src="https://product.hstatic.net/200000343865/product/truyen-tranh-ki-nang-cho-nguoi-tre_nghe-thuat-duy-tri_4fbf4c727ae743398a24ea81d766c347.jpg" alt="Truyện Võ">
-                        </a>
-                        <div class="story-info">
-                            <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">nghe-thuat-duy-tri</a></h3>
-                            <p><strong>Chapters:</strong> 310</p>
-                            <p><strong>Lượt Xem:</strong> ${story.views}</p>
-                            <p><strong>Theo Dõi:</strong> 36,737</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </main>
     <footer>
+        <div class="tothetop">
+            <button onclick="scrollToTop()" id="myBtn" title="Go to top"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+        </div>
         <p>&copy; 2025 Truyện Tranh Online. All Rights Reserved.</p>
     </footer>
-    <script>
-        function redirectToGenre(genre) {
-            window.location.href = `genre.html?theloai=${genre}`;
+    <script src="https://kit.fontawesome.com/508b433abc.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>       
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 100) {
+                $("#myBtn").show();
+            } else {
+                $("#myBtn").hide();
+            }
+        });
+        function scrollToTop() {
+            $("html, body").animate({scrollTop: 0}, 700);
         }
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            const searchInput = document.querySelector(".find input");
+            const storyListContainer = document.querySelector(".list");
+
+            let stories = []; 
+
+            async function fetchStories() {
+                try {
+                    const response = await fetch("http://localhost:3000/api/stories"); 
+                    if (!response.ok) throw new Error("Không thể lấy dữ liệu");
+                    stories = await response.json(); 
+                    displayStories(stories);
+                } catch (error) {
+                    console.error("❌ Lỗi khi lấy dữ liệu:", error);
+                    storyListContainer.innerHTML = "<p>Không thể tải dữ liệu.</p>";
+                }
+            }
+
+            function displayStories(filteredStories) {
+                storyListContainer.innerHTML = "";
+
+                if (filteredStories.length === 0) {
+                    storyListContainer.innerHTML = "<p>Không tìm thấy truyện phù hợp.</p>";
+                    return;
+                }
+
+                filteredStories.forEach(story => {
+                    const storyCard = document.createElement("div");
+                    storyCard.classList.add("story-card");
+
+                    storyCard.dataset.theloai = JSON.stringify(story.genre);
+                    storyCard.dataset.status = story.status;
+                    storyCard.dataset.views = story.views;
+                    storyCard.dataset.chapters = Object.keys(story.chapters).length;
+
+                    storyCard.innerHTML = `
+                        <a href="#" onclick='redirectToStoryPage(${JSON.stringify(story)})'>
+                            <img src="${story.image}" alt="${story.title}">
+                        </a>
+                        <div class="story-info">
+                            <h3><a href="#" onclick='redirectToStoryPage(${JSON.stringify(story)})'>${story.title}</a></h3>
+                            <p><strong>Chapters:</strong> ${Object.keys(story.chapters).length}</p>
+                            <p><strong>Lượt Xem:</strong> ${story.views}</p>
+                            <p><strong>Theo Dõi:</strong> ${story.followers}</p>
+                        </div>
+                    `;
+
+                    storyListContainer.appendChild(storyCard);
+                });
+            }
+
+            function filterStories(searchTerm) {
+                return stories.filter(story =>
+                    story.title.toLowerCase().includes(searchTerm) ||
+                    (story.id && story.id.toString().includes(searchTerm))
+                );
+            }
+
+            function handleSearchInput() {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+
+                if (!searchTerm) {
+                    displayStories(stories);
+                    return;
+                }
+
+                const filteredStories = filterStories(searchTerm);
+                displayStories(filteredStories);
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialSearchTerm = urlParams.get("search")?.toLowerCase();
+
+            searchInput.addEventListener("input", handleSearchInput);
+            await fetchStories();
+
+            if (initialSearchTerm) {
+                searchInput.value = initialSearchTerm;
+                displayStories(filterStories(initialSearchTerm));
+            }
+        });
+
+        function redirectToStoryPage(story) {
+            console.log("📌 Chuyển hướng với title:", story.title);
+            window.location.href = `Novel.html?story=${encodeURIComponent(story.title)}`;
+        }
+        function redirectToGenre(genre) {
+            window.location.href = `genre.html?theloai=${encodeURIComponent(genre)}`;
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedGenre = urlParams.get("theloai");
+
+            if (selectedGenre) {
+                // ✅ Đặt thể loại vào dropdown nếu có
+                const genreDropdown = document.getElementById("genre-filter");
+                genreDropdown.value = selectedGenre;
+
+                // ✅ Gọi filterStories() sau 100ms để đảm bảo DOM đã tải xong
+                setTimeout(filterStories, 100);
+            }
+        });
+
         function toggleDropdown() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
@@ -521,9 +627,25 @@
             }
         };
         // Redirect to account
-        function redirectToAccount() {
-            const isLoggedIn = localStorage.getItem("loggedInUser"); 
-            window.location.href = isLoggedIn ? "account.html" : "account.html?mode=signin";
+        async function redirectToAccount() {
+            try {
+                const response = await fetch("/api/check-login", {
+                    method: "GET",
+                    headers: {
+                        "Authorization": localStorage.getItem("sessionId") || ""
+                    }
+                });
+
+                const data = await response.json();
+                if (data.loggedIn) {
+                    window.location.href = "account.html";
+                } else {
+                    window.location.href = "account.html?mode=signin";
+                }
+            } catch (error) {
+                console.error("Lỗi kiểm tra đăng nhập:", error);
+                window.location.href = "account.html?mode=signin";
+            }
         }
 
         //getURL
@@ -540,13 +662,14 @@
         //filterStories
         function filterStories() {
             const genre = document.getElementById("genre-filter").value;
-            const status = document.querySelector(".status-btn.active").dataset.status;
+            const status = document.querySelector(".status-btn.active")?.dataset.status || "all";
             const stories = document.querySelectorAll(".story-card");
 
             stories.forEach(story => {
-                const storyGenres = story.dataset.theloai.split(" ");
+                const storyGenres = JSON.parse(story.dataset.theloai); // Lấy danh sách thể loại
                 const storyStatus = story.dataset.status;
 
+                // ✅ Kiểm tra nếu có ít nhất 1 thể loại trùng
                 const matchesGenre = genre === "all" || storyGenres.includes(genre);
                 const matchesStatus = status === "all" || storyStatus === status;
 
@@ -564,18 +687,21 @@
         //sortStories
         function sortStories() {
             const sortBy = document.getElementById("sort-filter").value;
-            const storyList = document.querySelector(".story-list");
+            const storyList = document.querySelector(".list");
             const stories = Array.from(document.querySelectorAll(".story-card"));
 
             stories.sort((a, b) => {
                 const aValue = parseInt(a.dataset[sortBy]);
                 const bValue = parseInt(b.dataset[sortBy]);
-                return bValue - aValue; 
+                return bValue - aValue;
             });
 
-            storyList.innerHTML = "";
-            stories.forEach(story => storyList.appendChild(story));
+            const fragment = document.createDocumentFragment();
+            stories.forEach(story => fragment.appendChild(story));
+
+            storyList.appendChild(fragment);
         }
+
 
         // Load profile pictures
         function loadProfilePictures() {

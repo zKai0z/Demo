@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=0">
     <title>No Name Novel</title>
     <link rel="icon" href="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1">
 
     <style>
+       
         /*Header*/
         body {
             font-family: Arial, sans-serif;
@@ -182,14 +183,14 @@
             padding: 10px;
             background-color: #888;
         }
-        /*container*/
+        /*follow-content*/
         main {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-        .container {
+        .follow-container {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -197,110 +198,76 @@
             width: 100%;
             gap: 10px;
             padding: 10px;
-            border: none;
-            background-color: #ececec;
+            height: 100%;
+            background-color: #ffffff;
         }
-        .chapter-control {
-            position: fixed;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            width: 720px;
-            height: 50px;
-            gap: 15px;
-            padding: 10px;
-            border: none;
-            background-color: #ececec;
-            border-radius: 15px;
-            top: 165px;
-        }
-        .fixed-bottom {
-            display: none;
-        }
-
-        .fixed-top {
-            top: 0;
-            bottom: auto;
-        }
-        .chapter-control select {
-            width: 170px;
-            height: 32px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            padding: 6px;
-            font-size: 11px;
-            color: #333;
-        }
-        .chapter-control button {
-            border: 0 solid transparent;
-            border-radius: 5px;
-            padding: 5px 10px;
-            font-size: 14px;
-            cursor: pointer;
-            background-color: rgb(127, 225, 255);
-        }
-        .chapter-control .fa-solid {
-            cursor: pointer;
-        }
-        .chapter-control .fa-solid.fa-square-caret-left, .chapter-control .fa-solid.fa-square-caret-right {
-            font-size: 28px;
-        }
-        .chapter-control .fa-solid.fa-square-caret-left {
-            margin-right: -10px;
-        }
-        .chapter-control .fa-solid.fa-square-caret-right {
-            margin-left: -10px;
-        }
-        /*chapter*/
-        .chapter {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            border: none;
-        }
-        .chapter h1 {
-            margin-top: 50px;
-            margin-bottom: 0;
-            border: 1px solid transparent;
-            background-color: rgb(255, 255, 255);
-            padding: 20px;
-            padding-left: 200px;
-            padding-right: 200px;
-        }
-        .chapter .chapter-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            border: none;
-        }
-        .chapter .chapter-content img {
+        .follow-content {
             width: 100%;
             height: auto;
-            margin: 0;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 11px;
         }
-        /*footer*/
+        .follow-content h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+        .follow-content img {
+            max-width: 100px;
+            height: auto;
+        }
+        .follow-list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            max-width: 100%;
+            height: 700px;
+            background-color: #e2e1e1d7;
+            padding: 10px;
+        }
+        .story-card {
+            flex: 0 1 124px;
+            height: 300px;
+            border: 0px solid transparent;
+            border-radius: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .story-card:hover {
+            box-shadow: 0 2px 18px #72efff;
+            cursor: pointer;
+            transform: scale(1.02) translateY(-2px);
+        }
+
+        .story-card img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 15px 15px 0 0 ;
+        }
+
+        .story-card a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+        }
+        /*foot-content*/
         footer {
             text-align: center;
             padding: 10px;
             background-color: #1b1b1be8;
             border-top: 1px solid #ddd;
             color: white;
-            font-size: 14px;
         }
         .tothetop button {
             display: none;
             position: fixed;
-            bottom: 30px;
-            right: 60px;
+            bottom: 20px;
+            right: 30px;
             width: 45px;
             border: 1px solid #000000;
             outline: none;
@@ -376,32 +343,17 @@
             .dropbtn{font-size: 16px;}
             .find{width: 200px;}
             .find input{font-size: 16px;}
-            /*container*/
-            .container {
-                width: 700px;
+
+            .follow-container{width: 60%;}
+            .story-card{
+                flex: 0 1 210px;
+                height: 450px;
             }
-            .chapter-control {
-                top: 270px;
+            .story-card a {
+                font-size: 16px;
             }
-            .fixed-top {
-                top: 0;
-                bottom: auto;
-            }
-            .fixed-bottom {
-                top: auto;
-                bottom: 0;
-                display: flex;
-            }
-            .chapter-control select {
-                font-size: 15px;
-            }
-            /*chapter*/
-            .chapter {
-                width: 700px;
-            }
-            /*footer*/
-            footer {
-                font-size: 18px;
+            .story-card p {
+                font-size: 14px;
             }
         }
     </style>
@@ -459,31 +411,11 @@
         </ul>
     </nav>
     <main>
-        <div class="container">
-            <div class="top">
-                <div class="NovelName">
-                    <a href="${story.title}" ></a>
-                </div>
-                <div class="currentChapter">
-                    <a href="${story.chapter}"></a>
-                </div>
+        <div class="follow-container">
+            <div class="follow-content">
+                <h1>Truyện đang theo dõi</h1>
+                <div class="follow-list"></div>
             </div>
-            <div class="chapter-control">
-                <i class="fa-solid fa-house-chimney" onclick="redirectToHome()"></i>
-                <i class="fa-solid fa-list" id="redirectToStoryPage"></i>
-                <i class="fa-solid fa-square-caret-left" id="prevChapter"></i>
-                
-                <select name="NumOfchapter" id="NumOfchapter"></select>
-                
-                <i class="fa-solid fa-square-caret-right" id="nextChapter"></i>
-                
-                <button class="follow">
-                </button>
-            </div>            
-        </div>
-        <div class="chapter">
-            <h1></h1>
-            <div class="chapter-content"></div>
         </div>
     </main>
     <footer>
@@ -494,8 +426,6 @@
     </footer>
     <script src="https://kit.fontawesome.com/508b433abc.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script>       
         $(window).scroll(function() {
             if ($(document).scrollTop() > 100) {
@@ -507,178 +437,6 @@
         function scrollToTop() {
             $("html, body").animate({scrollTop: 0}, 700);
         }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const chapterControl = document.querySelector(".chapter-control");
-            let lastScrollY = window.scrollY;
-
-            window.addEventListener("scroll", () => {
-                let currentScrollY = window.scrollY;
-
-                if (currentScrollY < 40) {
-                    chapterControl.classList.remove("fixed-top", "fixed-bottom");
-                    chapterControl.classList.add("normal-position");
-                } else if (currentScrollY > lastScrollY) {
-                    chapterControl.classList.remove("fixed-top");
-                    chapterControl.classList.add("fixed-bottom");
-                } else {
-                    chapterControl.classList.remove("fixed-bottom");
-                    chapterControl.classList.add("fixed-top");
-                }
-
-                lastScrollY = currentScrollY;
-            });
-        });
-
-        //Chapter
-        document.addEventListener("DOMContentLoaded", async () => {
-            try {
-                const urlParams = new URLSearchParams(window.location.search);
-                const storyId = urlParams.get("story");
-                let chapterNumber = urlParams.get("chapter") || "0";
-
-                if (!storyId) throw new Error("❌ Không có storyId trong URL");
-
-                chapterNumber = chapterNumber.replace(/^chapter\s*/, ""); // Normalize chapter format
-
-                // ✅ Fetch story data
-                const response = await fetch(`/api/stories?id=${storyId}`);
-                if (!response.ok) throw new Error("❌ Không thể lấy dữ liệu truyện");
-
-                const stories = await response.json();
-                const story = stories.find(s => s._id === storyId);
-                if (!story) throw new Error("❌ Không tìm thấy truyện với ID này.");
-                console.log(story);
-                if (!story.chapters || typeof story.chapters !== "object") {
-                    throw new Error("❌ Dữ liệu chương bị lỗi hoặc không tồn tại.");
-                }
-
-                //To Story Page
-                const redirectButton = document.getElementById("redirectToStoryPage");
-                if (redirectButton) {
-                    redirectButton.addEventListener("click", () => redirectToStoryPage(story));
-                };
-
-                // ✅ Sort chapters correctly (handles "chapter 1", "chapter 10")
-                const chapterKeys = Object.keys(story.chapters).sort((a, b) => {
-                    const numA = parseInt(a.replace("chapter ", ""), 10);
-                    const numB = parseInt(b.replace("chapter ", ""), 10);
-                    return numA - numB;
-                });
-
-                const currentIndex = chapterKeys.indexOf(`chapter ${chapterNumber}`);
-
-                document.querySelector("h1").textContent = `Chương ${chapterNumber}`;
-
-                // ✅ Fetch user data for follow status
-                const storedData = JSON.parse(sessionStorage.getItem("loggedInUser"));
-                let isFollowed = false;
-                if (storedData && storedData.user) {
-                    const userId = storedData.user.userId;
-                    const userResponse = await fetch(`/api/user?id=${userId}`);
-                    if (userResponse.ok) {
-                        const user = await userResponse.json();
-                        isFollowed = user.followedStories.includes(story._id);
-                    }
-                }
-
-                // ✅ Update follow button
-                const followButton = document.querySelector(".follow");
-                followButton.innerHTML = isFollowed
-                    ? `<button onclick="followStory('${story._id}')"><i class="fa-solid fa-xmark"></i> Unfollow</button>`
-                    : `<button onclick="followStory('${story._id}')"><i class="fa-regular fa-heart"></i> Follow</button>`;
-
-                // ✅ Populate chapter dropdown
-                const chapterSelect = document.getElementById("NumOfchapter");
-                chapterSelect.innerHTML = chapterKeys
-                    .map(chapter => `<option value="${chapter}">${chapter}</option>`)
-                    .join("");
-
-                chapterSelect.value = `chapter ${chapterNumber}`;
-
-                // ✅ Handle chapter selection change
-                chapterSelect.addEventListener("change", function () {
-                    window.location.href = `readWeb.html?story=${encodeURIComponent(storyId)}&chapter=${encodeURIComponent(this.value)}`;
-                });
-
-                // ✅ Previous & Next Chapter Buttons
-                document.getElementById("prevChapter").addEventListener("click", function () {
-                    if (currentIndex > 0) {
-                        window.location.href = `readWeb.html?story=${encodeURIComponent(storyId)}&chapter=${encodeURIComponent(chapterKeys[currentIndex - 1])}`;
-                    }
-                });
-
-                document.getElementById("nextChapter").addEventListener("click", function () {
-                    if (currentIndex < chapterKeys.length - 1) {
-                        window.location.href = `readWeb.html?story=${encodeURIComponent(storyId)}&chapter=${encodeURIComponent(chapterKeys[currentIndex + 1])}`;
-                    }
-                });
-
-                // ✅ Load Chapter Images
-                const images = story.chapters[`chapter ${chapterNumber}`] || [];
-                const imageContainer = document.querySelector(".chapter-content");
-
-                if (!Array.isArray(images) || images.length === 0) {
-                    imageContainer.innerHTML = "<p>❌ Không có ảnh cho chương này.</p>";
-                    return;
-                }
-
-                imageContainer.innerHTML = images
-                    .map(imgUrl => `<img src="${imgUrl}" alt="Chương ${chapterNumber}" style="width:100%; max-width:800px; display:block;">`)
-                    .join("");
-
-            } catch (error) {
-                Swal.fire({ icon: "error", title: "Lỗi khi tải truyện", text: error.message, confirmButtonText: "OK" });
-            }
-        });
-
-        // ✅ Follow/Unfollow Story
-        async function followStory(storyId) {
-            try {
-                const storedData = JSON.parse(sessionStorage.getItem("loggedInUser"));
-                if (!storedData || !storedData.user || !storedData.user.userId) {
-                    Swal.fire({ icon: "error", text: "User chưa đăng nhập", confirmButtonText: "OK" });
-                    return;
-                }
-
-                const userId = storedData.user.userId;
-                const userResponse = await fetch(`/api/user?id=${userId}`);
-                if (!userResponse.ok) throw new Error("Không thể lấy thông tin người dùng");
-
-                const user = await userResponse.json();
-
-                let isFollowing = user.followedStories.includes(storyId);
-                let updatedFollowedStories = isFollowing
-                    ? user.followedStories.filter(id => id !== storyId)
-                    : [...user.followedStories, storyId];
-
-                // ✅ Update Follow List in Server
-                const response = await fetch(`/api/user/${user._id}/followedStories`, {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ followedStories: updatedFollowedStories })
-                });
-
-                if (!response.ok) throw new Error("Cập nhật trên server thất bại.");
-
-                // ✅ Update Follow Button UI
-                const followButton = document.querySelector(".follow");
-                const followerSpan = document.querySelector(".follow-info span");
-                let followers = parseInt(followerSpan.textContent) || 0;
-
-                if (isFollowing) {
-                    followButton.innerHTML = '<i class="fa-regular fa-heart"></i> Follow';
-                    followerSpan.textContent = `${followers - 1} followers`;
-                } else {
-                    followButton.innerHTML = '<i class="fa-solid fa-xmark"></i> Unfollow';
-                    followerSpan.textContent = `${followers + 1} followers`;
-                }
-
-                console.log("📌 Cập nhật danh sách theo dõi thành công:", updatedFollowedStories);
-            } catch (error) {
-                
-            }
-        };
 
         //search story
         document.addEventListener("DOMContentLoaded", () => {
@@ -698,10 +456,79 @@
                     handleSearch();
                 }
             });
-        }); 
+        });
 
-        function redirectToHome() {
-            window.location.href = "home.html";
+        document.addEventListener("DOMContentLoaded", async () => {
+            const followedListContainer = document.querySelector(".follow-list");
+            followedListContainer.innerHTML = "<p>Đang tải...</p>";
+
+            try {
+                // Get logged-in user data
+                const storedData = JSON.parse(sessionStorage.getItem("loggedInUser"));
+                if (!storedData || !storedData.user || !storedData.user.userId) {
+                    followedListContainer.innerHTML = "<p>Vui lòng đăng nhập để xem danh sách truyện theo dõi.</p>";
+                    return;
+                }
+
+                const userId = storedData.user.userId;
+
+                // Fetch user details from API
+                const userResponse = await fetch(`http://localhost:3000/api/user?id=${userId}`);
+                if (!userResponse.ok) throw new Error("Không thể lấy thông tin người dùng");
+
+                const user = await userResponse.json();
+                const followedStoryIds = user.followedStories || [];
+
+                if (followedStoryIds.length === 0) {
+                    followedListContainer.innerHTML = "<p>Không có truyện theo dõi nào.</p>";
+                    return;
+                }
+
+                // Fetch all stories
+                const storiesResponse = await fetch("http://localhost:3000/api/stories");
+                if (!storiesResponse.ok) throw new Error("Không thể lấy danh sách truyện từ API");
+
+                const stories = await storiesResponse.json();
+
+                // Filter stories by followedStoryIds
+                const filteredStories = stories.filter(story => followedStoryIds.includes(story._id));
+
+                console.log("📌 Danh sách truyện theo dõi:", filteredStories);
+                followedListContainer.innerHTML = "";
+
+                filteredStories.forEach(story => {
+                    const storyCard = document.createElement("div");
+                    storyCard.classList.add("story-card");
+
+                    storyCard.dataset.theloai = JSON.stringify(story.genre);
+                    storyCard.dataset.status = story.status;
+                    storyCard.dataset.views = story.views;
+                    storyCard.dataset.chapters = Object.keys(story.chapters).length;
+
+                    storyCard.innerHTML = `
+                        <a href="#" onclick='redirectToStoryPage(${JSON.stringify(story)})'>
+                            <img src="${story.image}" alt="${story.title}">
+                        </a>
+                        <div class="story-info">
+                            <h3><a href="#" onclick='redirectToStoryPage(${JSON.stringify(story)})'>${story.title}</a></h3>
+                            <p><strong>Chapters:</strong> ${Object.keys(story.chapters).length}</p>
+                            <p><strong>Lượt Xem:</strong> ${story.views}</p>
+                            <p><strong>Theo Dõi:</strong> ${story.followers}</p>
+                        </div>
+                    `;
+
+                    followedListContainer.appendChild(storyCard);
+                });
+
+            } catch (error) {
+                console.error("❌ Lỗi khi lấy dữ liệu từ API:", error);
+                followedListContainer.innerHTML = "<p>Không thể tải dữ liệu.</p>";
+            }
+        });
+
+        function redirectToStoryPage(story) {
+            console.log("📌 Chuyển hướng với title:", story.title);
+            window.location.href = `Novel.html?story=${encodeURIComponent(story.title)}`;
         }
         function redirectToGenre(genre) {
             window.location.href = `genre.html?theloai=${encodeURIComponent(genre)}`;
@@ -711,10 +538,12 @@
             document.getElementById("myDropdown").classList.toggle("show");
         }
 
-        function redirectToStoryPage(story) {
-            window.location.href = `Novel.html?story=${encodeURIComponent(story.title)}`;
-        }
-
+        // Đóng dropdown khi click ngoài
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                document.getElementById("myDropdown").classList.remove("show");
+            }
+        };
         async function redirectToAccount() {
             try {
                 const response = await fetch("/api/check-login", {
@@ -735,22 +564,6 @@
                 window.location.href = "account.html?mode=signin";
             }
         }
-        
-        // Đóng dropdown khi click ngoài
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                document.getElementById("myDropdown").classList.remove("show");
-            }
-        };
-        function redirectToAccount() {
-            const isLoggedIn = localStorage.getItem("loggedInUser"); 
-
-            if (isLoggedIn) {
-                window.location.href = "account.html";
-            } else {
-                window.location.href = "account.html?mode=signin";
-            }
-        }
 
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
@@ -767,7 +580,6 @@
                 }
             }
         };
-        
         // Load profile pictures
         function loadProfilePictures() {
             let user = JSON.parse(localStorage.getItem('loggedInUser'));

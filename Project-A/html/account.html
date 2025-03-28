@@ -295,20 +295,39 @@
         .left-column, .right-column {
             width: 70%;
             padding: 10px;
-        }
-
-        .left-column {
+            background-color: #fff;
             border: 2px solid #ddd;
             border-radius: 5px;
-            background: #fff;
+        }
+
+        .left-column p {
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background: #e4e4e4;
+            text-align: left;
+        }
+
+        .left-column .hidden {
+            display: none;
+        }
+        .left-column .hidden label {
+            font-size: 16px;
+            height: 30px;
+            text-align: left;
+            align-items: left;
+        }
+        .left-column .hidden button {
+            width: 50%; 
+            height: 20%;
+            align-self: center;
+            border-radius: 5px;
+            background-color: #0084ffce;
+            color: #ffffff;
         }
 
         .right-column {
             display: flex;
             flex-direction: column;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            background: #fff;
             align-items: center;
             justify-content: center;
         }
@@ -492,6 +511,9 @@
                 width: 40%;
                 height: 75%;
             }
+            .left-column .hidden label {
+                height: 20px;
+            }
             .buttons {
                 margin-left: auto;
                 margin-right: auto;
@@ -504,8 +526,8 @@
 </head>
 <body>
     <header>
-        <a class="logo" href="home.html"><img src="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1" width="50px" height="50px" alt=""></a>
-        <a href="home.html" class="home-logo"><img src="https://lh3.google.com/u/1/d/173ukoZSY5fbQ-7-CJ0WlYTegWBQtqc4V=w1876-h972-iv1" alt=""></a>
+        <a class="logo" href="home.html"><img src="https://i.postimg.cc/B66gbNSH/HUB-1.png" width="50px" height="50px" alt=""></a>
+        <a href="home.html" class="home-logo"><img src="https://i.postimg.cc/bvLgq4hq/logo-web-novel-Canvases-Landscape-i1.png" alt=""></a>
         <div class="right-logo" onclick="redirectToAccount()">
             <img class="profile-pic" src="default-profile.png" alt="Profile Picture">
         </div>        
@@ -516,24 +538,40 @@
             <li class="dropdown">
                 <button onclick="toggleDropdown()" class="dropbtn">Thể Loại</button>
                 <div id="myDropdown" class="dropcontent">
-                    <a href="#" onclick="redirectToGenre('hanh-dong')">Hành Động</a>
-                    <a href="#" onclick="redirectToGenre('lang-man')">Lãng Mạn</a>
-                    <a href="#" onclick="redirectToGenre('hai-huoc')">Hài Hước</a>
-                    <a href="#" onclick="redirectToGenre('gia-tuong')">Giả Tưởng</a>
-                    <a href="#" onclick="redirectToGenre('phieu-luu')">Phiêu Lưu</a>
-                    <a href="#" onclick="redirectToGenre('hau-cung')">Hậu Cung</a>
-                    <a href="#" onclick="redirectToGenre('manga')">Manga</a>
-                    <a href="#" onclick="redirectToGenre('manhua')">Manhua</a>
-                    <a href="#" onclick="redirectToGenre('manhwa')">Manhwa</a>
+                    <a href="#" onclick="redirectToGenre('all')">Tất cả thể loại</a>
+                    <a href="#" onclick="redirectToGenre('Hành Động')">Hành Động</a>
+                    <a href="#" onclick="redirectToGenre('Lãng Mạn')">Lãng Mạn</a>
+                    <a href="#" onclick="redirectToGenre('Hài Hước')">Hài Hước</a>
+                    <a href="#" onclick="redirectToGenre('Giả Tưởng')">Giả Tưởng</a>
+                    <a href="#" onclick="redirectToGenre('Võ Thuật')">Võ Thuật</a>
+                    <a href="#" onclick="redirectToGenre('Phiêu Lưu')">Phiêu Lưu</a>
+                    <a href="#" onclick="redirectToGenre('Hậu Cung')">Hậu Cung</a>
+                    <a href="#" onclick="redirectToGenre('Manga')">Manga</a>
+                    <a href="#" onclick="redirectToGenre('Manhua')">Manhua</a>
+                    <a href="#" onclick="redirectToGenre('Manhwa')">Manhwa</a>
+                    <a href="#" onclick="redirectToGenre('Kinh dị')">Kinh dị</a>
+                    <a href="#" onclick="redirectToGenre('Huyền Huyễn')">Huyền Huyễn</a>
+                    <a href="#" onclick="redirectToGenre('Trinh Thám')">Trinh Thám</a>
+                    <a href="#" onclick="redirectToGenre('Lịch Sử')">Lịch Sử</a>
+                    <a href="#" onclick="redirectToGenre('Khoa học')">Khoa học</a>
+                    <a href="#" onclick="redirectToGenre('Viễn Tưởng')">Viễn Tưởng</a>
+                    <a href="#" onclick="redirectToGenre('Siêu nhiên')">Siêu nhiên</a>
+                    <a href="#" onclick="redirectToGenre('Tu Tiên')">Tu Tiên</a>
+                    <a href="#" onclick="redirectToGenre('Hentai')">Hentai</a>
+                    <a href="#" onclick="redirectToGenre('Doujinshi')">Doujinshi</a>
+                    <a href="#" onclick="redirectToGenre('Webtoon')">Webtoon</a>
+                    <a href="#" onclick="redirectToGenre('Đời Thường')">Đời Thường</a>
+                    <a href="#" onclick="redirectToGenre('Fantasy')">Fantasy</a>
                 </div>
             </li>
-            <li><a href="">Truyện Mới</a></li>
-            <li><a href="">Theo Dõi</a></li>
+            <li><a href="Follow.html">Theo Dõi</a></li>
             <li><a href="">Liên Hệ</a></li>
             <li>
                 <div class="find">
-                    <input type="text" placeholder="Tìm Truyện">
-                    <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <input type="text" id="search-input" placeholder="Tìm Truyện">
+                    <span class="icon" id="search-button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
                 </div>
             </li>
         </ul>
@@ -544,11 +582,11 @@
             <div id="signinContainer">
                 <form onsubmit="handleSignIn(event)">
                     <label for="username"><b>Username</b></label>
-                    <input type="text" id="username" placeholder="Username" required>
+                    <input type="text" id="username" placeholder="Username" required autocomplete="username">
         
                     <label for="password"><b>Password</b></label>
                     <div style="position: relative;">
-                        <input type="password" id="password" placeholder="Password" required>
+                        <input type="password" id="password" placeholder="password" required autocomplete="current-password">
                         <i class="fa-solid fa-eye" id="togglePassword" onclick="togglePasswordVisibility()"></i>
                     </div>
         
@@ -569,19 +607,19 @@
             <div id="signupContainer" style="display: none;">
                 <form onsubmit="handleSignUp(event)">
                     <label for="newUsername"><b>Username</b></label>
-                    <input type="text" id="newUsername" placeholder="Username" required>
+                    <input type="text" id="newUsername" placeholder="Username" required autocomplete="username">
         
                     <label for="email"><b>Email</b></label>
                     <input type="email" id="email" placeholder="Email" required>
         
                     <label for="newPassword"><b>Password</b></label>
                     <div style="position: relative;">
-                        <input type="password" id="newPassword" placeholder="Password" required>
+                        <input type="password" id="newPassword" placeholder="Password" required autocomplete="new-password">
                         <i class="fa-solid fa-eye" id="toggleNewPassword" onclick="toggleNewPasswordVisibility()"></i>
                     </div>
         
                     <label for="confirmPassword"><b>Confirm Password</b></label>
-                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required autocomplete="new-password">
         
                     <button type="submit" class="signin">Sign Up</button>
                 </form>
@@ -597,17 +635,48 @@
             <div class="account-menu" id="accountMenu" style="display: none;">
                 <div class="profile-container">
                     <div class="left-column">
-                        <h3>Account Information</h3>
-                        <div class="account-info">
-                            <p><b>Username:</b> <span id="accountUsername"></span></p>
-                            <p><b>Email:</b> <span id="accountEmail"></span></p>
+                        <div class="accountForm" id="accountForm">
+                            <h3>Account Information</h3>
+                            <div class="account-info">
+                                <p><b>Username:</b> <span id="accountUsername"></span></p>
+                                <p><b>Email:</b> <span id="accountEmail"></span></p>
+                                <p><b>Birthday:</b> <span id="birthday"></span></p>
+                                <p><b>Gender:</b> <span id="gender"></span></p>
+                            </div>
                         </div>
-                    </div>
+                        <div class="hidden" id="hidden">
+                            <h3>Edit Information</h3>
+                            <form id="updateForm">
+                                <label>Username: <input type="text" id="editUsername"></label><br>
+                                <label>Email: <input type="email" id="editEmail"></label><br>
+                                <label>Birthday: <input type="date" id="editBirthday"></label><br>
+                                <label>Gender: 
+                                    <select id="editGender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </label><br>
+                                <button type="submit">Update</button>
+                            </form>
+                        </div>
+                    </div>                    
                     <div class="right-column">
                         <h3>Profile Picture</h3>
                         <img class="profile-pic" src="default-profile.png" alt="Profile Picture">
-                        <input type="file" id="uploadProfilePic" style="display: none;" onchange="changeProfilePic(event)">
-                        <button onclick="document.getElementById('uploadProfilePic').click()" class="change-picture">Change Picture</button>
+                        <input 
+                            type="file" 
+                            id="uploadProfilePic" 
+                            style="display: none;" 
+                            onchange="changeProfilePic(event)"
+                            accept="image/*"
+                        >
+                        <button 
+                            onclick="document.getElementById('uploadProfilePic').click()" 
+                            class="change-picture"
+                        >
+                            Change Picture
+                        </button>
                     </div>
                 </div>
                 <div class="buttons">
@@ -623,9 +692,34 @@
     </footer>
     
     <script src="https://kit.fontawesome.com/508b433abc.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        /*window.addEventListener("load", function() {
+            localStorage.clear(); // Clears all local storage data
+            console.log("LocalStorage has been cleared on server launch.");
+        });*/
+
+        //search story
+        document.addEventListener("DOMContentLoaded", () => {
+            const searchInput = document.getElementById("search-input");
+            const searchButton = document.getElementById("search-button");
+
+            function handleSearch() {
+                const searchTerm = searchInput.value.trim();
+                if (searchTerm) {
+                    window.location.href = `genre.html?search=${encodeURIComponent(searchTerm)}`;
+                }
+            }
+
+            searchButton.addEventListener("click", handleSearch);
+            searchInput.addEventListener("keypress", (event) => {
+                if (event.key === "Enter") {
+                    handleSearch();
+                }
+            });
+        });
         function redirectToGenre(genre) {
-            window.location.href = `genre.html?theloai=${genre}`;
+            window.location.href = `genre.html?theloai=${encodeURIComponent(genre)}`;
         }
         function toggleDropdown() {
             document.getElementById("myDropdown").classList.toggle("show");
@@ -650,54 +744,168 @@
             }
         };
     
-        // Redirect to account
-        function redirectToAccount() {
-            const isLoggedIn = localStorage.getItem("loggedInUser"); 
-            window.location.href = isLoggedIn ? "account.html" : "account.html?mode=signin";
+        // Chuyển đến trang đăng ký
+        function redirectToSignUp() {
+            document.getElementById("signinContainer").style.display = "none";
+            document.getElementById("signupContainer").style.display = "block";
         }
-    
-        // Handle sign-in
-        function handleSignIn(event) {
+
+        // Chuyển về trang đăng nhập
+        function showSignIn() {
+            document.getElementById("signinContainer").style.display = "block";
+            document.getElementById("signupContainer").style.display = "none";
+        }
+
+        // 🔹 Đăng nhập
+        async function handleSignIn(event) {
             event.preventDefault();
-    
+
             const username = document.getElementById("username").value.trim();
             const password = document.getElementById("password").value.trim();
-            const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-            const user = storedUsers.find(u => u.username === username);
-    
-            if (!user) {
-                alert('Username not found. Please sign up.');
-                return;
+            const rememberMe = document.getElementById("rememberMe")?.checked;
+
+            try {
+                const response = await fetch("http://localhost:3000/api/signin", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, password })
+                });
+
+                // Check if response is OK
+                const text = await response.text();
+                let data;
+                try {
+                    data = JSON.parse(text);
+                } catch {
+                    throw new Error("Invalid server response: " + text);
+                }
+
+                if (!response.ok) throw new Error(data.message || "Login failed");
+
+                // Save user session
+                if (rememberMe) {
+                    localStorage.setItem("loggedInUser", JSON.stringify({ sessionId: data.sessionId, user: data.user }));
+                } else {
+                    sessionStorage.setItem("loggedInUser", JSON.stringify({ sessionId: data.sessionId, user: data.user }));
+                }
+
+                Swal.fire({ icon: "success", text: "Login successful!", confirmButtonText: "OK" });
+                window.location.href = "account.html";
+            } catch (error) {
+                Swal.fire({ icon: "error", text: error.message, confirmButtonText: "OK" });
             }
-            if (user.password !== password) {
-                alert('Incorrect password. Please try again.');
-                return;
+        }
+
+        // 🔹 Đăng ký
+        async function handleSignUp(event) {
+            event.preventDefault();
+
+            try {
+                const username = document.getElementById("newUsername").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const password = document.getElementById("newPassword").value.trim();
+                const confirmPassword = document.getElementById("confirmPassword").value.trim();
+                
+                if (password !== confirmPassword) {
+                    return Swal.fire({ icon: "error", text: "Passwords do not match", confirmButtonText: "OK" });
+                }
+
+                const response = await fetch("http://localhost:3000/api/signup", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, email, password })
+                });
+
+                const data = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(data.message || "Sign-up failed");
+                }
+
+                Swal.fire({ icon: "success", text: "Sign-up successful! Please sign in.", confirmButtonText: "OK" });
+                showSignIn();
+            } catch (error) {
+                Swal.fire({ icon: "error", text: error.message, confirmButtonText: "OK" });
             }
-    
-            // Store logged-in user
-            localStorage.setItem('loggedInUser', JSON.stringify(user));
-            window.location.href = 'account.html';
         }
-    
-        // Show sign-up form
-        function redirectToSignUp() {
-            document.getElementById("signupContainer").style.display = "block";
-            document.getElementById("signinContainer").style.display = "none";
+
+
+        //cap nhap
+        function editProfile() {
+            document.getElementById("hidden").style.display = "block";
+            document.getElementById("accountForm").style.display = "none";
         }
-    
-        // Show sign-in form
-        function showSignIn() {
-            document.getElementById("signupContainer").style.display = "none";
-            document.getElementById("signinContainer").style.display = "block";
-        }
-    
-        // Redirect to an external sign-up page
-        function goToSignUpPage() {
-            window.location.href = 'account.html?mode=signup';
-        }
-    
-        // Toggle password visibility (Sign-in)
-        function togglePasswordVisibility() {
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            const storedData = JSON.parse(localStorage.getItem("loggedInUser")) || JSON.parse(sessionStorage.getItem("loggedInUser"));
+            console.log(storedData);
+
+            const userId = storedData.user.userId; // Correct key
+            const userEndpoint = `/api/user?id=${userId}`;
+            console.log(userId); 
+
+            // 🔹 Lấy thông tin người dùng
+            async function fetchUserInfo() {
+                try {
+                    const response = await fetch(userEndpoint);
+                    if (!response.ok) throw new Error("Không thể lấy thông tin người dùng");
+
+                    const userData = await response.json();
+
+                    // Hiển thị thông tin người dùng
+                    document.getElementById("accountUsername").textContent = userData.username || "";
+                    document.getElementById("accountEmail").textContent = userData.email || "";
+                    document.getElementById("birthday").textContent = userData.birthday || "";
+                    document.getElementById("gender").textContent = userData.gender || "";
+
+                    // Đổ dữ liệu vào form cập nhật
+                    document.getElementById("editUsername").value = userData.username || "";
+                    document.getElementById("editEmail").value = userData.email || "";
+                    document.getElementById("editBirthday").value = userData.birthday || "";
+                    document.getElementById("editGender").value = userData.gender || "";
+                } catch (error) {
+                    console.error("Lỗi khi lấy dữ liệu:", error);
+                }
+            }
+
+            // 🔹 Xử lý cập nhật thông tin người dùng
+            document.getElementById("updateForm").addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                // Thu thập dữ liệu từ form
+                const updatedUser = {
+                    username: document.getElementById("editUsername").value.trim(),
+                    email: document.getElementById("editEmail").value.trim(),
+                    birthday: document.getElementById("editBirthday").value,
+                    gender: document.getElementById("editGender").value
+                };
+
+                try {
+                    const response = await fetch(userEndpoint, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(updatedUser)
+                    });
+
+                    const result = await response.json();
+                    if (response.ok) {
+                        Swal.fire({ icon: "success", text: result.message, confirmButtonText: "OK" });
+                        fetchUserInfo(); // Cập nhật lại thông tin trên giao diện
+                        document.getElementById("hidden").style.display = "none";
+                        document.getElementById("accountForm").style.display = "block";
+                    } else {
+                        Swal.fire({ icon: "error", text: result.message, confirmButtonText: "OK" });
+                    }
+                } catch (error) {
+                    console.error("Lỗi khi cập nhật dữ liệu:", error);
+                }
+            });
+
+            fetchUserInfo();
+        });
+
+         // Toggle password visibility (Sign-in)
+         function togglePasswordVisibility() {
             const passwordField = document.getElementById('password');
             const icon = document.getElementById('togglePassword');
     
@@ -723,128 +931,41 @@
                 icon.classList.replace('fa-eye-slash', 'fa-eye');
             }   
         }
-    
-        // Handle sign-up
-        function handleSignUp(event) {
-            event.preventDefault();
-    
-            const username = document.getElementById("newUsername").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("newPassword").value.trim();
-            const confirmPassword = document.getElementById("confirmPassword").value.trim();
-            const termsChecked = document.getElementById("terms").checked;
-    
-            if (password !== confirmPassword) {
-                alert("Passwords do not match.");
-                return;
-            }
-            if (!termsChecked) {
-                alert("You must agree to the terms and conditions.");
-                return;
-            }
-    
-            const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-            if (storedUsers.some(user => user.username === username)) {
-                alert("Username already exists. Please use a different one.");
-                return;
-            }
-    
-            const newUser = { username, email, password };
-            storedUsers.push(newUser);
-            localStorage.setItem('users', JSON.stringify(storedUsers));
-    
-            alert("Sign-up successful! Please sign in.");
-            showSignIn();
-        }
-    
-        // Remember me functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const rememberMeCheckbox = document.getElementById('rememberMe');
-            const rememberMe = localStorage.getItem('rememberMe');
-            const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    
-            if (rememberMe && storedUser) {
-                document.getElementById('username').value = storedUser.username;
-                document.getElementById('password').value = storedUser.password;
-                rememberMeCheckbox.checked = true;
-            }
-    
-            rememberMeCheckbox.addEventListener('change', function (e) {
-                if (e.target.checked) {
-                    localStorage.setItem('rememberMe', 'true');
-                } else {
-                    localStorage.removeItem('rememberMe');
-                }
-            });
-        });
 
-        //redirect to account
-        function loadAccountMenu() {
-            const user = JSON.parse(localStorage.getItem('loggedInUser'));
-            if (user) {
-                document.getElementById("signinContainer").style.display = "none";
-                document.getElementById("signupContainer").style.display = "none";
-                document.getElementById("accountMenu").style.display = "block";
+        function showAccountMenu() {
+            const storedData = JSON.parse(sessionStorage.getItem("loggedInUser")) || JSON.parse(localStorage.getItem("loggedInUser"));
+
+            if (storedData && storedData.user) {
+                const user = storedData.user;
                 document.getElementById("accountUsername").textContent = user.username;
                 document.getElementById("accountEmail").textContent = user.email;
-                if (user.profilePic) {
-                    document.getElementById("profilePic").src = user.profilePic;
-                }
-            }
-        }
-        
-        // Edit profile
-        function editProfile() {
-            const newUsername = prompt("Enter new username:", "");
-            const newEmail = prompt("Enter new email:", "");
-            
-            if (newUsername && newEmail) {
-                let user = JSON.parse(localStorage.getItem('loggedInUser'));
-                user.username = newUsername;
-                user.email = newEmail;
-                localStorage.setItem('loggedInUser', JSON.stringify(user));
-                loadAccountMenu();
-            }
-        }
-        
-        // Change profile picture
-        function changeProfilePic(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    let user = JSON.parse(localStorage.getItem('loggedInUser')) || {};
-                    user.profilePic = e.target.result;
-                    localStorage.setItem('loggedInUser', JSON.stringify(user));
+                document.getElementById("birthday").textContent = user.birthday;
+                document.getElementById("gender").textContent = user.gender;
 
-                    document.querySelectorAll(".profile-pic").forEach(img => {
-                        img.src = e.target.result;
-                    });
-                };
-                reader.readAsDataURL(file);
+                document.getElementById("accountMenu").style.display = "block";
+                document.getElementById("signinContainer").style.display = "none";
+            } else {
+                // Ensure menu is hidden if no user is logged in
+                document.getElementById("accountMenu").style.display = "none";
+                document.getElementById("signinContainer").style.display = "block";
             }
         }
 
-        // Load profile pictures
-        function loadProfilePictures() {
-            let user = JSON.parse(localStorage.getItem('loggedInUser'));
-            if (user && user.profilePic) {
-                document.querySelectorAll(".profile-pic").forEach(img => {
-                    img.src = user.profilePic;
-                });
-            }
-        }
+        // Run the function on page load
+        window.onload = showAccountMenu;
 
-        document.addEventListener("DOMContentLoaded", loadProfilePictures);
 
-        
-        // Logout
+        // 🔹 Đăng xuất
         function logout() {
-            localStorage.removeItem('loggedInUser');
-            window.location.reload();
+            localStorage.removeItem("loggedInUser");  // ✅ Remove correct key
+            sessionStorage.removeItem("loggedInUser"); // ✅ Remove correct key
+
+            document.getElementById("accountMenu").style.display = "none";
+            document.getElementById("signinContainer").style.display = "block";
+
+            Swal.fire({ icon: "success", text: "Logout successful!", confirmButtonText: "OK" });
         }
-        
-        document.addEventListener("DOMContentLoaded", loadAccountMenu);
+
     </script>
     
 </body>

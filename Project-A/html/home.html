@@ -30,7 +30,7 @@
             height: auto;
         }
 
-        header a{text-decoration: none;color:azure;}
+        header a{text-decoration: none;color:azure;display: block;}
 
         header .home-logo {
             width: 70px;
@@ -229,8 +229,8 @@
         }
 
         .story-card {
-            flex: 1 1 30%;
-            width: 30px;
+            flex: 0 1 93px;
+            height: 275px;
             border: 0px solid transparent;
             border-radius: 15px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -245,7 +245,8 @@
 
         .story-card img {
             max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+            max-height: 306px;
             border-radius: 15px 15px 0 0 ;
         }
 
@@ -259,14 +260,14 @@
         .right-column .historyL {
             display: flex;
             justify-content: center;   
-            height: 100%;        
+            height: auto;
         }
 
         .history-list {
             max-height: 220px;
             overflow-y: auto;
             scrollbar-width: thin;
-            padding-left: 10px;
+            padding: 5px;
             background-color: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 15px;
@@ -275,12 +276,17 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
+            gap: 10px;
         }
 
         .history-list .story-card{
             width: 100%;
             flex-direction: column;
-            height: 100%;
+            height: auto;
+        }
+        .history-list .story-card a{
+            text-decoration: none;
+            color: black;
         }
 
         .history-list::-webkit-scrollbar {
@@ -400,7 +406,20 @@
             border-top: 1px solid #ddd;
             color: white;
         }
-
+        .tothetop button {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            width: 45px;
+            border: 1px solid #000000;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.096);
+            color: rgb(0, 255, 242);
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 8px;
+        }
         /* Desktop View */
         @media (min-width: 768px) {
             main {
@@ -495,20 +514,20 @@
             }
 
             .story-card {
-                flex: 1 1 20%;
-                max-width: 24%;
+                flex: 0 1 210px;
+                height: 450px;
             }
 
             .history-list {
+                flex-direction: row;
                 max-height: 700px;
                 width: 300px;
+                padding: 10px;
             }
 
             .history-list .story-card{
-                flex: 1 1 50%;
-                max-width: 45%;
-                height: 50%;
-                margin: 5px;
+                flex: 0 1 140px;
+                height: 300px;
             }
         }
         
@@ -517,8 +536,8 @@
 </head>
 <body>
     <header>
-        <a class="logo" href="home.html"><img src="https://lh3.google.com/u/1/d/1btktrYFS3By6IBlJWjCJ6SJnSm706KrQ=w1876-h972-iv1" width="50px" height="50px" alt=""></a>
-        <a href="home.html" class="home-logo"><img src="https://lh3.google.com/u/1/d/173ukoZSY5fbQ-7-CJ0WlYTegWBQtqc4V=w1876-h972-iv1" alt=""></a>
+        <a class="logo" href="home.html"><img src="https://i.postimg.cc/B66gbNSH/HUB-1.png" width="50px" height="50px" alt=""></a>
+        <a href="home.html" class="home-logo"><img src="https://i.postimg.cc/bvLgq4hq/logo-web-novel-Canvases-Landscape-i1.png" alt=""></a>
         <div class="right-logo" onclick="redirectToAccount()">
             <img class="profile-pic" src="default-profile.png" alt="Profile Picture">
         </div>   
@@ -529,24 +548,40 @@
             <li class="dropdown">
                 <button onclick="toggleDropdown()" class="dropbtn">Thể Loại</button>
                 <div id="myDropdown" class="dropcontent">
-                    <a href="#" onclick="redirectToGenre('hanh-dong')">Hành Động</a>
-                    <a href="#" onclick="redirectToGenre('lang-man')">Lãng Mạn</a>
-                    <a href="#" onclick="redirectToGenre('hai-huoc')">Hài Hước</a>
-                    <a href="#" onclick="redirectToGenre('gia-tuong')">Giả Tưởng</a>
-                    <a href="#" onclick="redirectToGenre('phieu-luu')">Phiêu Lưu</a>
-                    <a href="#" onclick="redirectToGenre('hau-cung')">Hậu Cung</a>
-                    <a href="#" onclick="redirectToGenre('manga')">Manga</a>
-                    <a href="#" onclick="redirectToGenre('manhua')">Manhua</a>
-                    <a href="#" onclick="redirectToGenre('manhwa')">Manhwa</a>
+                    <a href="#" onclick="redirectToGenre('all')">Tất cả thể loại</a>
+                    <a href="#" onclick="redirectToGenre('Hành Động')">Hành Động</a>
+                    <a href="#" onclick="redirectToGenre('Lãng Mạn')">Lãng Mạn</a>
+                    <a href="#" onclick="redirectToGenre('Hài Hước')">Hài Hước</a>
+                    <a href="#" onclick="redirectToGenre('Giả Tưởng')">Giả Tưởng</a>
+                    <a href="#" onclick="redirectToGenre('Võ Thuật')">Võ Thuật</a>
+                    <a href="#" onclick="redirectToGenre('Phiêu Lưu')">Phiêu Lưu</a>
+                    <a href="#" onclick="redirectToGenre('Hậu Cung')">Hậu Cung</a>
+                    <a href="#" onclick="redirectToGenre('Manga')">Manga</a>
+                    <a href="#" onclick="redirectToGenre('Manhua')">Manhua</a>
+                    <a href="#" onclick="redirectToGenre('Manhwa')">Manhwa</a>
+                    <a href="#" onclick="redirectToGenre('Kinh dị')">Kinh dị</a>
+                    <a href="#" onclick="redirectToGenre('Huyền Huyễn')">Huyền Huyễn</a>
+                    <a href="#" onclick="redirectToGenre('Trinh Thám')">Trinh Thám</a>
+                    <a href="#" onclick="redirectToGenre('Lịch Sử')">Lịch Sử</a>
+                    <a href="#" onclick="redirectToGenre('Khoa học')">Khoa học</a>
+                    <a href="#" onclick="redirectToGenre('Viễn Tưởng')">Viễn Tưởng</a>
+                    <a href="#" onclick="redirectToGenre('Siêu nhiên')">Siêu nhiên</a>
+                    <a href="#" onclick="redirectToGenre('Tu Tiên')">Tu Tiên</a>
+                    <a href="#" onclick="redirectToGenre('Hentai')">Hentai</a>
+                    <a href="#" onclick="redirectToGenre('Doujinshi')">Doujinshi</a>
+                    <a href="#" onclick="redirectToGenre('Webtoon')">Webtoon</a>
+                    <a href="#" onclick="redirectToGenre('Đời Thường')">Đời Thường</a>
+                    <a href="#" onclick="redirectToGenre('Fantasy')">Fantasy</a>
                 </div>
             </li>
-            <li><a href="">Theo Dõi</a></li>
-            <li><a href="">Truyện Mới</a></li>
+            <li><a href="Follow.html">Theo Dõi</a></li>
             <li><a href="">Liên Hệ</a></li>
             <li>
                 <div class="find">
-                    <input type="text" placeholder="Tìm Truyện">
-                    <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <input type="text" id="search-input" placeholder="Tìm Truyện">
+                    <span class="icon" id="search-button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
                 </div>
             </li>
         </ul>
@@ -686,177 +721,56 @@
         <section class="center-column">
             <h2>Truyện Hot</h2>
             <div class="hotlist">
-                <div class="story-card">
-                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                        <img src="https://product.hstatic.net/200000343865/product/truyen-tranh-ki-nang-cho-nguoi-tre_nghe-thuat-duy-tri_4fbf4c727ae743398a24ea81d766c347.jpg" alt="Truyện Võ">
-                    </a>
-                    <div class="story-info">
-                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">nghe-thuat-duy-tri</a></h3>
-                        <p><strong>Chapters:</strong> 310</p>
-                        <p><strong>Lượt Xem:</strong> 3M</p>
-                        <p><strong>Theo Dõi:</strong> 36,737</p>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                        <img src="https://antentruyen.com/wp-content/uploads/2022/09/Khong-Co-Tieu-De1.jpg" alt="Đồ Đệ Nữ Đế">
-                    </a>
-                    <div class="story-info">
-                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">Đồ Đệ Nữ Đế</a></h3>
-                        <p><strong>Chapters:</strong> 10</p>
-                        <p><strong>Lượt Xem:</strong> 392K</p>
-                        <p><strong>Theo Dõi:</strong> 25,000</p>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                        <img src="/images/truyen3.jpg" alt="Isekai NTR">
-                    </a>
-                    <div class="story-info">
-                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">Isekai NTR</a></h3>
-                        <p><strong>Chapters:</strong> 61</p>
-                        <p><strong>Lượt Xem:</strong> 6K</p>
-                        <p><strong>Theo Dõi:</strong> 33,429</p>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                        <img src="/images/truyen3.jpg" alt="Adame">
-                    </a>
-                    <div class="story-info">
-                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">Adame</a></h3>
-                        <p><strong>Chapters:</strong> 56</p>
-                        <p><strong>Lượt Xem:</strong> 66K</p>
-                        <p><strong>Theo Dõi:</strong> 330,429</p>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                        <img src="/images/truyen3.jpg" alt="LOFI">
-                    </a>
-                    <div class="story-info">
-                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
-                        <p><strong>Chapters:</strong> 12</p>
-                        <p><strong>Lượt Xem:</strong> 55K</p>
-                        <p><strong>Theo Dõi:</strong> 10,429</p>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                        <img src="/images/truyen3.jpg" alt="LOFI">
-                    </a>
-                    <div class="story-info">
-                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
-                        <p><strong>Chapters:</strong> 12</p>
-                        <p><strong>Lượt Xem:</strong> 55K</p>
-                        <p><strong>Theo Dõi:</strong> 10,429</p>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                        <img src="/images/truyen3.jpg" alt="LOFI">
-                    </a>
-                    <div class="story-info">
-                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
-                        <p><strong>Chapters:</strong> 12</p>
-                        <p><strong>Lượt Xem:</strong> 55K</p>
-                        <p><strong>Theo Dõi:</strong> 10,429</p>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                        <img src="/images/truyen3.jpg" alt="LOFI">
-                    </a>
-                    <div class="story-info">
-                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
-                        <p><strong>Chapters:</strong> 12</p>
-                        <p><strong>Lượt Xem:</strong> 55K</p>
-                        <p><strong>Theo Dõi:</strong> 10,429</p>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                        <img src="/images/truyen3.jpg" alt="LOFI">
-                    </a>
-                    <div class="story-info">
-                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
-                        <p><strong>Chapters:</strong> 12</p>
-                        <p><strong>Lượt Xem:</strong> 55K</p>
-                        <p><strong>Theo Dõi:</strong> 10,429</p>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                        <img src="/images/truyen3.jpg" alt="LOFI">
-                    </a>
-                    <div class="story-info">
-                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
-                        <p><strong>Chapters:</strong> 12</p>
-                        <p><strong>Lượt Xem:</strong> 55K</p>
-                        <p><strong>Theo Dõi:</strong> 10,429</p>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                        <img src="/images/truyen3.jpg" alt="LOFI">
-                    </a>
-                    <div class="story-info">
-                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
-                        <p><strong>Chapters:</strong> 12</p>
-                        <p><strong>Lượt Xem:</strong> 55K</p>
-                        <p><strong>Theo Dõi:</strong> 10,429</p>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                        <img src="/images/truyen3.jpg" alt="LOFI">
-                    </a>
-                    <div class="story-info">
-                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
-                        <p><strong>Chapters:</strong> 12</p>
-                        <p><strong>Lượt Xem:</strong> 55K</p>
-                        <p><strong>Theo Dõi:</strong> 10,429</p>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                        <img src="/images/truyen3.jpg" alt="LOFI">
-                    </a>
-                    <div class="story-info">
-                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
-                        <p><strong>Chapters:</strong> 12</p>
-                        <p><strong>Lượt Xem:</strong> 55K</p>
-                        <p><strong>Theo Dõi:</strong> 10,429</p>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">
-                        <img src="/images/truyen3.jpg" alt="LOFI">
-                    </a>
-                    <div class="story-info">
-                        <h3><a href="#" onclick="updateHistory(this.closest('.story-card').outerHTML)">LOFI</a></h3>
-                        <p><strong>Chapters:</strong> 12</p>
-                        <p><strong>Lượt Xem:</strong> 55K</p>
-                        <p><strong>Theo Dõi:</strong> 10,429</p>
-                    </div>
-                </div>
-                
             </div>
         </section>
         <section class="right-column">
             <h2>Lịch Sử Đọc Truyện</h2>
-            <div class="historyL"></div>
-        </section>
+            <div class="historyL">
+                <div class="history-list"></div>
+            </div>
+        </section>        
     </main>
     <footer>
+        <div class="tothetop">
+            <button onclick="scrollToTop()" id="myBtn" title="Go to top"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+        </div>
         <p>&copy; 2025 Truyện Tranh Online. All Rights Reserved.</p>
     </footer>
 
     <script src="https://kit.fontawesome.com/508b433abc.js" crossorigin="anonymous"></script>
-    <script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>       
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 100) {
+                $("#myBtn").show();
+            } else {
+                $("#myBtn").hide();
+            }
+        });
+        function scrollToTop() {
+            $("html, body").animate({scrollTop: 0}, 700);
+        }
+        //search story
+        document.addEventListener("DOMContentLoaded", () => {
+            const searchInput = document.getElementById("search-input");
+            const searchButton = document.getElementById("search-button");
 
+            function handleSearch() {
+                const searchTerm = searchInput.value.trim();
+                if (searchTerm) {
+                    window.location.href = `genre.html?search=${encodeURIComponent(searchTerm)}`;
+                }
+            }
+
+            searchButton.addEventListener("click", handleSearch);
+            searchInput.addEventListener("keypress", (event) => {
+                if (event.key === "Enter") {
+                    handleSearch();
+                }
+            });
+        });
         function redirectToGenre(genre) {
-            window.location.href = `genre.html?theloai=${genre}`;
+            window.location.href = `genre.html?theloai=${encodeURIComponent(genre)}`;
         }
 
         function toggleDropdown() {
@@ -870,47 +784,64 @@
             }
         };
 
+        document.addEventListener("DOMContentLoaded", async () => {
+            const hotlistContainer = document.querySelector(".hotlist");
+            hotlistContainer.innerHTML = "<p>Đang tải...</p>";
 
-        document.addEventListener("DOMContentLoaded", () => {
-            fetch("http://localhost:3000/api/stories")
-                .then(response => response.json())
-                .then(stories => {
-                    const hotlistContainer = document.querySelector(".hotlist");
-                    hotlistContainer.innerHTML = "";
+            try {
+                const response = await fetch("http://localhost:3000/api/stories");
+                const stories = await response.json();
+                console.log(stories);
 
-                    stories.forEach(story => {
-                        const storyCard = document.createElement("div");
-                        storyCard.classList.add("story-card");
+                hotlistContainer.innerHTML = "";
 
-                        storyCard.dataset.theloai = story.genre;     
-                        storyCard.dataset.status = story.status;      
-                        storyCard.dataset.views = story.views;        
-                        storyCard.dataset.chapters = story.chapters;  
+                stories.forEach(story => {
+                    const storyCard = document.createElement("div");
+                    storyCard.classList.add("story-card");
 
-                        storyCard.innerHTML = `
-                            <a href="#" onclick="updateHistory(this.closest('.story-card'))">
-                                <img src="${story.image}" alt="${story.title}">
-                            </a>
-                            <div class="story-info">
-                                <h3><a href="#" onclick="updateHistory(this.closest('.story-card'))">${story.title}</a></h3>
-                                <p><strong>Chapters:</strong> ${story.chapters}</p>
-                                <p><strong>Lượt Xem:</strong> ${story.views.toLocaleString()}</p>
-                                <p><strong>Theo Dõi:</strong> ${story.followers}</p>
-                            </div>
-                        `;
+                    storyCard.dataset.theloai = JSON.stringify(story.genre);
+                    storyCard.dataset.status = story.status;
+                    storyCard.dataset.views = story.views;
+                    storyCard.dataset.chapters = Object.keys(story.chapters).length;
 
-                        hotlistContainer.appendChild(storyCard);
-                    });
-                })
-                .catch(error => console.error("Error loading stories:", error));
+                    storyCard.innerHTML = `
+                        <a href="#" onclick='redirectToStoryPage(${JSON.stringify(story)})'>
+                            <img src="${story.image}" alt="${story.title}">
+                        </a>
+                        <div class="story-info">
+                            <h3><a href="#" onclick='redirectToStoryPage(${JSON.stringify(story)})'>${story.title}</a></h3>
+                            <p><strong>Chapters:</strong> ${Object.keys(story.chapters).length}</p>
+                            <p><strong>Lượt Xem:</strong> ${story.views}</p>
+                            <p><strong>Theo Dõi:</strong> ${story.followers}</p>
+                        </div>
+                    `;
+
+                    hotlistContainer.appendChild(storyCard);
+                });
+            } catch (error) {
+                console.error("❌ Lỗi khi lấy dữ liệu từ API:", error);
+                hotlistContainer.innerHTML = "<p>Không thể tải dữ liệu.</p>";
+            }
         });
 
-        function redirectToAccount() {
-            const isLoggedIn = localStorage.getItem("loggedInUser"); 
 
-            if (isLoggedIn) {
-                window.location.href = "account.html";
-            } else {
+        async function redirectToAccount() {
+            try {
+                const response = await fetch("/api/check-login", {
+                    method: "GET",
+                    headers: {
+                        "Authorization": localStorage.getItem("sessionId") || ""
+                    }
+                });
+
+                const data = await response.json();
+                if (data.loggedIn) {
+                    window.location.href = "account.html";
+                } else {
+                    window.location.href = "account.html?mode=signin";
+                }
+            } catch (error) {
+                console.error("Lỗi kiểm tra đăng nhập:", error);
                 window.location.href = "account.html?mode=signin";
             }
         }
@@ -942,19 +873,97 @@
             document.querySelector(`button[onclick="switchTab('${tabId}')"]`).classList.add('active');
         }
 
+        // History
+        async function renderHistory() {
+            console.log("📌 renderHistory() được gọi");
 
-
-        function updateHistory(storyCardHtml) {
             const rightColumn = document.querySelector(".historyL");
-            let historyList = rightColumn.querySelector(".history-list");
+            const historylist = document.querySelector(".history-list");
+            historylist.innerHTML = "";
 
-            if (!historyList) {
-                historyList = document.createElement("div");
-                historyList.className = "history-list";
-                rightColumn.appendChild(historyList);
+            try {
+                // Fetch the currently logged-in user
+                const storedData = JSON.parse(sessionStorage.getItem("loggedInUser"));
+                if (!storedData || !storedData.user || !storedData.user.userId) {
+                    Swal.fire({ icon: "error", text: "User chưa đăng nhập", confirmButtonText: "OK" });
+                    return;
+                }
+
+                const userId = storedData.user.userId;
+                const userResponse = await fetch(`/api/user?id=${userId}`);
+                if (!userResponse.ok) throw new Error("Không thể lấy thông tin người dùng");
+
+                const user = await userResponse.json();
+                const history = user.history || []; // Array of story IDs
+
+                if (history.length === 0) {
+                    historylist.innerHTML = "<p>Không có lịch sử đọc.</p>";
+                    return;
+                }
+
+                // Fetch story details based on each story ID
+                let stories = [];
+                const storyDetailsPromises = history.map(async (storyId) => {
+                    try {
+                        const response = await fetch(`/api/stories?id=${storyId}`);
+                        if (!response.ok) throw new Error(`Không thể lấy thông tin truyện với ID ${storyId}`);
+                        
+                        const data = await response.json();
+                        
+                        stories.push(...data); 
+                    } catch (error) {
+                        console.error(error);
+                    }
+                });
+
+                await Promise.all(storyDetailsPromises);
+
+                console.log(stories); 
+
+
+                await Promise.all(storyDetailsPromises);
+
+                console.log(stories); 
+
+
+                // Render the stories
+                stories.forEach(story => {
+                    const storyCard = document.createElement("div");
+                    storyCard.classList.add("story-card");
+
+                    storyCard.dataset.theloai = JSON.stringify(story.genre);
+                    storyCard.dataset.status = story.status;
+                    storyCard.dataset.views = story.views;
+                    storyCard.dataset.chapters = Object.keys(story.chapters).length;
+
+                    storyCard.innerHTML = `
+                        <a href="#" onclick='redirectToStoryPage(${JSON.stringify(story)})'>
+                            <img src="${story.image}" alt="${story.title}">
+                        </a>
+                        <div class="story-info">    
+                            <h3><a href="#" onclick='redirectToStoryPage(${JSON.stringify(story)})'>${story.title}</a></h3>
+                            <p><strong>Chapters:</strong> ${Object.keys(story.chapters).length}</p>
+                            <p><strong>Lượt Xem:</strong> ${story.views}</p>
+                            <p><strong>Theo Dõi:</strong> ${story.followers}</p>
+                        </div>
+                    `;
+
+                    historylist.appendChild(storyCard);
+                });
+
+                console.log("✅ Lịch sử đọc đã được hiển thị.");
+            } catch (error) {
+                console.error("❌ Lỗi khi hiển thị lịch sử đọc:", error);
             }
+        }
 
-            historyList.innerHTML += storyCardHtml;
+        document.addEventListener("DOMContentLoaded", () => {
+            renderHistory();
+        });
+
+        function redirectToStoryPage(story) {
+            console.log("📌 Chuyển hướng với title:", story.title);
+            window.location.href = `Novel.html?story=${encodeURIComponent(story.title)}`;
         }
 
         // Load profile pictures
